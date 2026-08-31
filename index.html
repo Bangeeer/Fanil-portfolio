@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Моё портфолио</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Фаниль — Photographer &amp; Videographer</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Шапка с меню (она будет на всех страницах) -->
+  <!-- Шапка с меню (фиксированная) -->
   <header>
+    <a href="index.html" class="logo">ФАНИЛЬ</a>
     <nav>
       <a href="index.html" class="active">Главная</a>
       <a href="arhiv.html">Работы</a>
@@ -17,17 +18,79 @@
     </nav>
   </header>
 
-  <!-- Главный экран -->
-  <main>
-    <div class="cover">
-      <h1>Ваше Имя</h1>
-      <p>Фотограф-документалист</p>
-      <!-- Пока вместо картинки просто надпись, потом замените -->
-      <div style="width:100%; height:400px; background:#eee; display:flex; align-items:center; justify-content:center; border-radius:12px;">
-        Здесь будет ваше большое фото
+  <!-- Hero-блок на весь экран -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-label">Photographer / Videographer — Kazan</div>
+      <h1>ФАНИЛЬ</h1>
+      <div class="hero-subtitle">
+        Фотограф и видеограф из Казани.<br />
+        Снимаю людей, события, бренды<br />
+        и истории, которые хочется пересматривать.
       </div>
     </div>
-  </main>
+    <div class="scroll">↓ Scroll to explore</div>
+  </section>
+
+  <!-- Короткий блок "Обо мне" (можно убрать, если не нужно) -->
+  <section id="about">
+    <div class="container">
+      <div class="section-number">01 — About</div>
+      <div class="about-text">
+        Я снимаю
+        <span>людей, эмоции
+        и моменты,</span>
+        превращая их
+        в визуальные истории.
+      </div>
+    </div>
+  </section>
+
+  <!-- Услуги (необязательно, но оставлю для атмосферы) -->
+  <section>
+    <div class="container">
+      <div class="section-number">02 — Services</div>
+      <div class="services">
+        <div class="service">
+          <span>Репортажная съёмка</span>
+          <span class="service-number">01</span>
+        </div>
+        <div class="service">
+          <span>Свадьбы</span>
+          <span class="service-number">02</span>
+        </div>
+        <div class="service">
+          <span>Reels / Content</span>
+          <span class="service-number">03</span>
+        </div>
+        <div class="service">
+          <span>Танцы</span>
+          <span class="service-number">04</span>
+        </div>
+        <div class="service">
+          <span>Корпоративы</span>
+          <span class="service-number">05</span>
+        </div>
+        <div class="service">
+          <span>Music Videos</span>
+          <span class="service-number">06</span>
+        </div>
+        <div class="service">
+          <span>Fashion</span>
+          <span class="service-number">07</span>
+        </div>
+        <div class="service">
+          <span>Commercial</span>
+          <span class="service-number">08</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Фаниль</span>
+    <span>Kazan, Russia</span>
+  </footer>
 
 </body>
 </html>
