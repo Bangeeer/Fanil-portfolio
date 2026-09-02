@@ -290,8 +290,8 @@ footer {
   }
   .hero h1 {
     font-size: 25vw;
-    letter-spacing: -5px;   /* уменьшили, чтобы не вылезало */
-    line-height: 1;         /* увеличили высоту строки */
+    letter-spacing: -4px;   /* чуть уменьшили отрицательный интервал */
+    line-height: 1.1;       /* увеличили высоту строки, чтобы "Ь" не обрезалась */
   }
   .hero-subtitle {
     font-size: 15px;
@@ -314,17 +314,17 @@ footer {
   }
   .about-text {
     font-size: 42px;
-    letter-spacing: -2px;   /* исправлено */
-    line-height: 1.1;       /* исправлено */
+    letter-spacing: -2px;
+    line-height: 1.1;
   }
   .service {
-    font-size: 22px;        /* чуть уменьшили */
-    letter-spacing: -1px;   /* исправлено */
+    font-size: 22px;
+    letter-spacing: -1px;
   }
   .contact h2 {
     font-size: 20vw;
-    letter-spacing: -4px;   /* исправлено */
-    line-height: 1;         /* исправлено */
+    letter-spacing: -4px;
+    line-height: 1;
   }
   .socials {
     flex-wrap: wrap;
