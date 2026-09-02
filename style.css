@@ -87,7 +87,7 @@ nav a.active {
   background:
     linear-gradient(to top, #080808 2%, rgba(8,8,8,.15) 70%),
     url("Image/Portrait.jpg")
-    center / cover no-repeat; /* явно указали no-repeat и center */
+    center / cover no-repeat;
 }
 
 .hero-content {
@@ -275,7 +275,7 @@ footer {
   color: #666;
 }
 
-/* ---------- МОБИЛЬНАЯ АДАПТАЦИЯ (исправлено обрезание и центрирование) ---------- */
+/* ---------- МОБИЛЬНАЯ АДАПТАЦИЯ (исправлено обрезание текста) ---------- */
 @media (max-width: 700px) {
   header {
     padding: 20px;
@@ -287,14 +287,17 @@ footer {
   .hero {
     min-height: 650px;
     padding: 30px 20px;
-    /* гарантируем, что фон центрируется */
-    background-position: center center;
-    background-size: cover;
+  }
+  /* Исправляем обрезание "KAZAN" в подзаголовке */
+  .hero-label {
+    font-size: 9px;          /* уменьшили размер */
+    letter-spacing: 1px;     /* уменьшили межбуквенный интервал */
+    word-break: break-word;  /* разрешаем перенос, если совсем не влезает */
   }
   .hero h1 {
-    font-size: 22vw;        /* чуть уменьшили, чтобы влезало */
-    letter-spacing: -3px;   /* уменьшили отрицательный интервал */
-    line-height: 1.2;       /* увеличили высоту строки — теперь "Ь" не обрезается */
+    font-size: 22vw;
+    letter-spacing: -3px;
+    line-height: 1.2;
   }
   .hero-subtitle {
     font-size: 15px;
@@ -331,14 +334,14 @@ footer {
   }
   .socials {
     flex-wrap: wrap;
-    gap: 20px; /* уменьшили расстояние между иконками */
+    gap: 20px;
   }
   footer {
     padding: 25px 20px;
-    flex-wrap: wrap;       /* чтобы переносилось на маленьких экранах */
+    flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
     text-align: center;
-    font-size: 10px;       /* чуть уменьшили шрифт, чтобы "Kazan, Russia" влезало */
+    font-size: 10px;
   }
 }
