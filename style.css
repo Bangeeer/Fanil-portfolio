@@ -1,15 +1,5 @@
-/* ============================================
-   ГЛАВНАЯ СТРАНИЦА — hero с фото
-   ============================================ */
-
-.home-hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 140px 0 80px;
-}
-
-.home-grid {
+/* ========== HERO с фото ========== */
+.hero-with-photo {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: 60px;
@@ -17,36 +7,13 @@
   width: 100%;
 }
 
-.home-label {
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #888;
-}
-
-.home-text h1 {
-  font-size: clamp(56px, 9vw, 140px);
-  font-weight: 800;
-  line-height: 0.9;
-  letter-spacing: -0.03em;
-  margin: 16px 0 28px;
-}
-
-.home-desc {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #bbb;
-  max-width: 480px;
-  margin-bottom: 40px;
-}
-
-.home-links {
+.hero-buttons {
   display: flex;
   gap: 14px;
+  margin-top: 32px;
   flex-wrap: wrap;
 }
 
-/* Кнопки */
 .btn {
   display: inline-block;
   padding: 14px 28px;
@@ -62,7 +29,6 @@
   opacity: 0.85;
   transform: translateY(-2px);
 }
-
 .btn-outline {
   background: transparent;
   color: #fff;
@@ -72,8 +38,7 @@
   border-color: #fff;
 }
 
-/* Фото */
-.home-photo img {
+.hero-photo img {
   width: 100%;
   height: auto;
   display: block;
@@ -82,17 +47,69 @@
   object-fit: cover;
 }
 
-/* Мобильная версия */
+/* ========== Внутренние страницы ========== */
+.page-hero {
+  padding: 140px 0 40px;
+}
+.page-title {
+  font-size: clamp(40px, 7vw, 96px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin: 16px 0 24px;
+}
+.page-lead {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #bbb;
+  max-width: 560px;
+}
+
+/* ========== Карточки контактов ========== */
+.contacts-section {
+  padding: 40px 0 100px;
+}
+.contacts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 32px;
+  border: 1px solid #222;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #fff;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.contact-card:hover {
+  border-color: #fff;
+  transform: translateY(-3px);
+}
+.contact-label {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #888;
+}
+.contact-value {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* ========== Адаптив ========== */
 @media (max-width: 768px) {
-  .home-grid {
+  .hero-with-photo {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  .home-photo {
+  .hero-photo {
     order: -1;
   }
-  .home-hero {
-    padding: 100px 0 60px;
-    min-height: auto;
+  .contacts-grid {
+    grid-template-columns: 1fr;
   }
 }
