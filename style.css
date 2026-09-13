@@ -454,3 +454,16 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================
+   EXPLORE (ссылки на разделы)
+   ============================================ */
+#explore {
+  padding: 60px 0 100px;
+}
+
+.explore-links {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
