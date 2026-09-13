@@ -174,7 +174,7 @@ header nav a.active::after {
   width: 100%;
   height: auto;
   aspect-ratio: 3 / 4;
-  object-fit: cover;
+  object-fit: 30% center;
   object-position: left center;
   border-radius: 12px;
 
