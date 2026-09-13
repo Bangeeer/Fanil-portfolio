@@ -58,10 +58,73 @@
     </div>
   </section>
 
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="contact-title">Свяжитесь со мной</h2>
+      <p class="contact-lead">Ваш проект ждёт старта. Напишите — обсудим идею, сроки и стоимость.</p>
+
+      <form id="contact-form" class="contact-form">
+        <input type="text" name="name" placeholder="Ваше имя" required />
+        <input type="text" name="contact" placeholder="Телефон, email или @username" required />
+        <textarea name="message" placeholder="Ваше сообщение" rows="4" required></textarea>
+        <button type="submit" class="contact-button">Отправить</button>
+      </form>
+
+      <div class="socials-row">
+        <a href="https://t.me/Bangeer" target="_blank" class="social-link">Telegram</a>
+        <a href="https://instagram.com/yofantik" target="_blank" class="social-link">Instagram (основной)</a>
+        <a href="https://instagram.com/bangeersk" target="_blank" class="social-link">Instagram (рабочий)</a>
+        <a href="mailto:bangeeer_rrr@mail.ru" class="social-link">Email</a>
+        <a href="tel:+79046759028" class="social-link">+7 (904) 675-90-28</a>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <span>© 2026 Фаниль</span>
     <span>Kazan, Russia</span>
   </footer>
+
+  <script>
+    const BOT_TOKEN = "8754319951:AAGUhMcqqYR3BkCsnPJ9nVsMP8Ba5ycXhlk";
+    const CHAT_ID = "417796347";
+
+    document.getElementById("contact-form").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+
+      const text =
+        "📩 Новая заявка с сайта\n\n" +
+        "👤 Имя: " + data.get("name") + "\n" +
+        "📞 Контакт: " + data.get("contact") + "\n" +
+        "💬 Сообщение: " + data.get("message");
+
+      const btn = form.querySelector("button");
+      btn.disabled = true;
+      btn.textContent = "Отправка...";
+
+      try {
+        const res = await fetch("https://api.telegram.org/bot" + BOT_TOKEN + "/sendMessage", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ chat_id: CHAT_ID, text: text })
+        });
+        if (res.ok) {
+          form.reset();
+          btn.textContent = "Отправлено ✓";
+          setTimeout(() => { btn.disabled = false; btn.textContent = "Отправить"; }, 3000);
+        } else {
+          throw new Error("Ошибка отправки");
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = "Отправить";
+        alert("Не получилось отправить. Напишите напрямую в Telegram: @Bangeer");
+      }
+    });
+  </script>
 
 </body>
 </html>
