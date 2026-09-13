@@ -320,3 +320,27 @@ footer {
     gap: 8px;
   }
 }
+/* ============================================
+   SHOWREEL
+   ============================================ */
+#showreel {
+  padding: 60px 0 100px;
+}
+
+.showreel-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  background: #000;
+  margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+  #showreel {
+    padding: 40px 0 70px;
+  }
+  .showreel-video {
+    border-radius: 8px;
+  }
+}
