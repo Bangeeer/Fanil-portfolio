@@ -173,9 +173,11 @@ header nav a.active::after {
 .hero-photo img {
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
+  object-position: left center;
   border-radius: 12px;
+
 }
 
 .scroll {
