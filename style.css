@@ -345,3 +345,12 @@ footer {
     font-size: 10px;
   }
 }
+/* ===== Video section ===== */
+#video video {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 24px;
+  border-radius: 8px;
+  background: #000;
+}
