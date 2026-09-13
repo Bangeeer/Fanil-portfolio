@@ -155,15 +155,18 @@ header nav a.active::after {
 }
 
 /* ============================================
-   ABOUT: текст ФАНИЛЬ + фото
+   ABOUT: текст ФАНИЛЬ + фото параллельно
    ============================================ */
 .about-section {
   padding: 100px 0;
 }
 
-.about-hero {
-  margin-bottom: 100px;
-  max-width: 900px;
+.about-top {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 120px;
 }
 
 .about-hero h1 {
@@ -196,29 +199,25 @@ header nav a.active::after {
   flex-wrap: wrap;
 }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.about-content {
-  font-size: clamp(28px, 4.5vw, 64px);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-}
-
-.about-content span {
-  color: #555;
-}
-
 .about-photo img {
   width: 100%;
   height: auto;
   display: block;
   border-radius: 12px;
+}
+
+/* Нижний текст — курсив, мягче */
+.about-bottom {
+  max-width: 800px;
+}
+
+.about-caption {
+  font-size: clamp(18px, 2.2vw, 26px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #aaa;
+  letter-spacing: -0.01em;
 }
 
 /* ============================================
@@ -453,3 +452,12 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+  .about-top {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+
+  .about-photo {
+    order: -1;
+  }
