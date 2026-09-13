@@ -92,60 +92,8 @@ header nav a.active::after {
 }
 
 /* ============================================
-   HERO с фото (главная)
+   КНОПКИ
    ============================================ */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 120px 40px 40px;
-  position: relative;
-}
-
-.hero-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.hero-with-photo {
-  display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.hero-label {
-  font-size: 12px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: #888;
-  margin-bottom: 24px;
-}
-
-.hero-text h1 {
-  font-size: clamp(56px, 10vw, 160px);
-  font-weight: 800;
-  line-height: 0.9;
-  letter-spacing: -0.03em;
-  margin-bottom: 32px;
-}
-
-.hero-subtitle {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #bbb;
-  max-width: 460px;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 14px;
-  margin-top: 36px;
-  flex-wrap: wrap;
-}
-
 .btn {
   display: inline-block;
   padding: 14px 30px;
@@ -170,65 +118,6 @@ header nav a.active::after {
   border-color: #fff;
 }
 
-.hero-photo img {
-  width: 100%;
-  height: auto;
-  max-height: 85vh;
-  object-fit: contain;
-  display: block;
-  border-radius: 12px;
-  margin-left: auto;
-}
-
-.scroll {
-  position: absolute;
-  bottom: 30px;
-  left: 40px;
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #666;
-}
-
-/* ============================================
-   SECTIONS
-   ============================================ */
-section {
-  padding: 100px 0;
-}
-
-.section-number {
-  font-size: 12px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: #888;
-  margin-bottom: 40px;
-}
-
-/* ABOUT */
-#about .about-text {
-  font-size: clamp(28px, 4.5vw, 64px);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  max-width: 1000px;
-}
-
-#about .about-text span {
-  color: #555;
-}
-
-/* ============================================
-   CONTACT
-   ============================================ */
-.contact h2 {
-  font-size: clamp(40px, 7vw, 100px);
-  font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.03em;
-  margin-bottom: 40px;
-}
-
 .contact-button {
   display: inline-block;
   padding: 18px 36px;
@@ -242,6 +131,150 @@ section {
 .contact-button:hover {
   opacity: 0.85;
   transform: translateY(-2px);
+}
+
+/* ============================================
+   HERO С ВИДЕО НА ВЕСЬ ЭКРАН (без текста)
+   ============================================ */
+.hero-video-bg {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.hero-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* ============================================
+   ABOUT: текст ФАНИЛЬ + фото
+   ============================================ */
+.about-section {
+  padding: 100px 0;
+}
+
+.about-hero {
+  margin-bottom: 100px;
+  max-width: 900px;
+}
+
+.about-hero h1 {
+  font-size: clamp(56px, 10vw, 160px);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  margin: 0 0 16px;
+}
+
+.hero-label {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 24px;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #bbb;
+  max-width: 460px;
+  margin-bottom: 32px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-content {
+  font-size: clamp(28px, 4.5vw, 64px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.about-content span {
+  color: #555;
+}
+
+.about-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+/* ============================================
+   SHOWREEL
+   ============================================ */
+#showreel {
+  padding: 60px 0 100px;
+}
+
+.showreel-video {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 12px;
+  background: #000;
+}
+
+/* ============================================
+   EXPLORE (ссылки на разделы)
+   ============================================ */
+#explore {
+  padding: 60px 0 100px;
+}
+
+.explore-links {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   ОБЩИЕ СЕКЦИИ
+   ============================================ */
+section {
+  padding: 100px 0;
+}
+
+.section-number {
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 40px;
+}
+
+/* ============================================
+   CONTACT
+   ============================================ */
+.contact h2 {
+  font-size: clamp(40px, 7vw, 100px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-bottom: 40px;
 }
 
 .socials {
@@ -259,6 +292,78 @@ section {
 }
 .socials a:hover {
   color: #fff;
+}
+
+/* ============================================
+   ВНУТРЕННИЕ СТРАНИЦЫ (video, photo, contacts)
+   ============================================ */
+.page-hero {
+  padding: 160px 0 20px;
+}
+
+.page-title {
+  font-size: clamp(56px, 10vw, 140px);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+
+.page-lead {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #bbb;
+  max-width: 560px;
+}
+
+/* VIDEO PAGE */
+.video-list {
+  padding: 40px 0 100px;
+}
+
+.video-item {
+  margin-bottom: 80px;
+}
+
+.video-info {
+  margin-bottom: 20px;
+}
+
+.video-title {
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* PHOTO PAGE */
+.photo-gallery {
+  padding: 40px 0 100px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.gallery-item {
+  display: block;
+  overflow: hidden;
+  border-radius: 12px;
+  aspect-ratio: 1 / 1;
+  background: #111;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
 }
 
 /* ============================================
@@ -291,27 +396,49 @@ footer {
     font-size: 14px;
   }
 
-  .hero {
-    padding: 100px 20px 60px;
-    min-height: auto;
-  }
-  .hero-with-photo {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .hero-photo {
-     order: -1;
-    max-width: 100%;
-  }
-  .scroll {
-    display: none;
-  }
-
   .container {
     padding: 0 20px;
   }
   section {
     padding: 70px 0;
+  }
+
+  .about-section {
+    padding: 70px 0;
+  }
+  .about-hero {
+    margin-bottom: 60px;
+  }
+  .about-hero h1 {
+    font-size: clamp(48px, 14vw, 80px);
+  }
+  .hero-label {
+    font-size: 10px;
+  }
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .about-photo {
+    order: -1;
+  }
+
+  .page-hero {
+    padding: 120px 0 10px;
+  }
+  .video-item {
+    margin-bottom: 50px;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  #showreel {
+    padding: 40px 0 70px;
+  }
+  .showreel-video {
+    border-radius: 8px;
   }
 
   footer {
@@ -320,334 +447,9 @@ footer {
     gap: 8px;
   }
 }
-/* ============================================
-   SHOWREEL
-   ============================================ */
-#showreel {
-  padding: 60px 0 100px;
-}
-
-.showreel-video {
-  width: 100%;
-  max-width: 900px;
-  height: auto;
-  display: block;
-  margin: 12px auto 0;
-  border-radius: 12px;
-  background: #000;
-}
-
-@media (max-width: 768px) {
-  #showreel {
-    padding: 40px 0 70px;
-  }
-  .showreel-video {
-    border-radius: 8px;
-  }
-}
-/* ============================================
-   ВНУТРЕННИЕ СТРАНИЦЫ (video, photo, contacts)
-   ============================================ */
-.page-hero {
-  padding: 160px 0 20px;
-}
-
-.page-title {
-  font-size: clamp(56px, 10vw, 140px);
-  font-weight: 800;
-  line-height: 0.9;
-  letter-spacing: -0.03em;
-  margin-bottom: 24px;
-}
-
-.page-lead {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #bbb;
-  max-width: 560px;
-}
-
-/* ============================================
-   VIDEO PAGE
-   ============================================ */
-.video-list {
-  padding: 40px 0 100px;
-}
-
-.video-item {
-  margin-bottom: 80px;
-}
-
-.video-info {
-  margin-bottom: 20px;
-}
-
-.video-title {
-  font-size: clamp(24px, 3vw, 40px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-.showreel-video {
-  width: 100%;
-  max-width: 1000px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  border-radius: 12px;
-  background: #000;
-}
-
-/* ============================================
-   PHOTO PAGE
-   ============================================ */
-.photo-gallery {
-  padding: 40px 0 100px;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.gallery-item {
-  display: block;
-  overflow: hidden;
-  border-radius: 12px;
-  aspect-ratio: 1 / 1;
-  background: #111;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-  display: block;
-}
-
-.gallery-item:hover img {
-  transform: scale(1.05);
-}
-
-/* ============================================
-   АДАПТИВ
-   ============================================ */
-@media (max-width: 768px) {
-  .page-hero {
-    padding: 120px 0 10px;
-  }
-
-  .video-item {
-    margin-bottom: 50px;
-  }
-
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-}
 
 @media (max-width: 480px) {
   .gallery-grid {
     grid-template-columns: 1fr;
-  }
-}
-
-/* ============================================
-   EXPLORE (ссылки на разделы)
-   ============================================ */
-#explore {
-  padding: 60px 0 100px;
-}
-
-.explore-links {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-/* HERO С ВИДЕО-ФОНОМ */
-.hero-video-bg {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  height: 100dvh;
-  overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-  padding: 0 40px 100px;
-}
-
-.hero-bg-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.85) 0%,
-    rgba(0, 0, 0, 0.6) 50%,
-    rgba(0, 0, 0, 0.4) 100%
-  );
-  z-index: 1;
-}
-
-.hero-video-bg .hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.hero-video-bg .scroll {
-  z-index: 2;
-}
-/* ============================================
-   HERO С ВИДЕО НА ВЕСЬ ЭКРАН
-   ============================================ */
-.hero-video-bg {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  height: 100dvh;            /* для телефона — учитывает адресную строку */
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  padding: 0 40px;
-}
-
-.hero-bg-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.85) 0%,
-    rgba(0, 0, 0, 0.55) 50%,
-    rgba(0, 0, 0, 0.35) 100%
-  );
-  z-index: 1;
-}
-
-.hero-video-bg .hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.hero-video-bg .scroll {
-  z-index: 2;
-}
-
-/* ============================================
-   ABOUT: фото + текст
-   ============================================ */
-.about-section {
-  padding: 100px 0;
-}
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.about-content {
-  font-size: clamp(28px, 4.5vw, 64px);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-}
-
-.about-content span {
-  color: #555;
-}
-
-.about-photo img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 12px;
-}
-
-/* ============================================
-   АДАПТИВ
-   ============================================ */
-@media (max-width: 768px) {
-  .hero-video-bg {
-    padding: 0 20px;
-  }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .about-photo {
-    order: -1;
-  }
-
-  .about-section {
-    padding: 70px 0;
-  }
-}
-
-/* Надпись Photographer / Videographer — Kazan под ФАНИЛЬ */
-.hero-video-bg .hero-label {
-  font-size: 11px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: #bbb;
-  margin-top: 16px;
-  margin-bottom: 24px;
-}
-
-/* Заголовок ФАНИЛЬ */
-.hero-video-bg h1 {
-  font-size: clamp(56px, 10vw, 160px);
-  font-weight: 800;
-  line-height: 0.9;
-  letter-spacing: -0.03em;
-  margin: 0;
-}
-
-/* Скрываем крутящийся внизу «↓ Узнать больше» (уже не нужен, т.к. текст внизу) */
-.hero-video-bg .scroll {
-  display: none;
-}
-
-/* Мобильный */
-@media (max-width: 768px) {
-  .hero-video-bg {
-    padding: 0 20px 60px;
-  }
-  .hero-video-bg h1 {
-    font-size: clamp(48px, 14vw, 80px);
-  }
-  .hero-video-bg .hero-label {
-    font-size: 10px;
-    margin-top: 12px;
-    margin-bottom: 18px;
   }
 }
