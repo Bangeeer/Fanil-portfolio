@@ -19,8 +19,8 @@
     </nav>
   </header>
 
-  <!-- HERO с фото -->
-   <section class="hero hero-video-bg">
+  <!-- HERO с видео-фоном на весь экран -->
+  <section class="hero hero-video-bg">
     <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata">
       <source src="video/showreel.mp4" type="video/mp4" />
     </video>
@@ -43,10 +43,32 @@
     <div class="scroll">↓ Узнать больше</div>
   </section>
 
-  <!-- ABOUT -->
-    <section id="showreel">
+  <!-- ABOUT: фото + текст -->
+  <section class="about-section" id="about">
+    <div class="container about-grid">
+
+      <div class="about-text">
+        <div class="section-number">01 — About</div>
+        <div class="about-content">
+          Я снимаю
+          <span>людей, эмоции
+          и моменты,</span>
+          превращая их
+          в визуальные истории.
+        </div>
+      </div>
+
+      <div class="about-photo">
+        <img src="Image/Portrait.jpg" alt="Фаниль" />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SHOWREEL -->
+  <section id="showreel">
     <div class="container">
-      <div class="section-number">01 — Showreel</div>
+      <div class="section-number">02 — Showreel</div>
       <video
         class="showreel-video"
         controls
@@ -58,10 +80,11 @@
       </video>
     </div>
   </section>
+
   <!-- Ссылки на разделы -->
   <section id="explore">
     <div class="container">
-      <div class="section-number">02 — Разделы</div>
+      <div class="section-number">03 — Разделы</div>
       <div class="explore-links">
         <a href="video.html" class="btn">Смотреть видео →</a>
         <a href="photo.html" class="btn btn-outline">Смотреть фото →</a>
