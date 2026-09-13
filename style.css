@@ -111,7 +111,7 @@ header nav a.active::after {
 
 .hero-with-photo {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 1fr 1.3fr;
   gap: 60px;
   align-items: center;
 }
@@ -173,8 +173,11 @@ header nav a.active::after {
 .hero-photo img {
   width: 100%;
   height: auto;
+  max-height: 85vh;
+  object-fit: contain;
   display: block;
   border-radius: 12px;
+  margin-left: auto;
 }
 
 .scroll {
@@ -297,7 +300,8 @@ footer {
     gap: 40px;
   }
   .hero-photo {
-    order: -1;
+     order: -1;
+    max-width: 100%;
   }
   .scroll {
     display: none;
