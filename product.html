@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Продукция — Фаниль</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">ФАНИЛЬ</a>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="video.html">Видео</a>
+      <a href="photo.html" class="active">Фото</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <a href="photo.html" class="back-link">← Все подборки</a>
+      <div class="section-number">Product</div>
+      <h1 class="page-title">Продукция</h1>
+      <p class="page-lead">
+        Предметная съёмка для брендов.
+      </p>
+    </div>
+  </section>
+
+  <section class="collection-gallery">
+    <div class="container">
+      <div class="masonry">
+
+        <a href="Image/product/01.jpg" class="masonry-item lightbox-link">
+          <img src="Image/product/01.jpg" alt="" loading="lazy" />
+        </a>
+
+        <a href="Image/product/02.jpg" class="masonry-item lightbox-link">
+          <img src="Image/product/02.jpg" alt="" loading="lazy" />
+        </a>
+
+        <a href="Image/product/03.jpg" class="masonry-item lightbox-link">
+          <img src="Image/product/03.jpg" alt="" loading="lazy" />
+        </a>
+
+        <a href="Image/product/04.jpg" class="masonry-item lightbox-link">
+          <img src="Image/product/04.jpg" alt="" loading="lazy" />
+        </a>
+
+        <a href="Image/product/05.jpg" class="masonry-item lightbox-link">
+          <img src="Image/product/05.jpg" alt="" loading="lazy" />
+        </a>
+
+        <a href="Image/product/06.jpg" class="masonry-item lightbox-link">
+          <img src="Image/product/06.jpg" alt="" loading="lazy" />
+        </a>
+
+        <!-- Добавляй новые фото по образцу:
+        <a href="Image/product/07.jpg" class="masonry-item lightbox-link">
+          <img src="Image/product/07.jpg" alt="" loading="lazy" />
+        </a>
+        -->
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Фаниль</span>
+    <span>Kazan, Russia</span>
+  </footer>
+
+  <!-- Лайтбокс -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightbox-close">×</span>
+    <img src="" alt="" id="lightbox-img" />
+  </div>
+
+  <script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.getElementById("lightbox-close");
+
+    document.querySelectorAll(".lightbox-link").forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        lightboxImg.src = link.getAttribute("href");
+        lightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove("active");
+      lightboxImg.src = "";
+      document.body.style.overflow = "";
+    }
+
+    closeBtn.addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeLightbox();
+    });
+  </script>
+
+</body>
+</html>
