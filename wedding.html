@@ -33,56 +33,35 @@
     <div class="container">
       <div class="masonry">
 
-        <a href="Image/wedding/01.jpg" target="_blank" class="masonry-item">
+        <a href="Image/wedding/01.jpg" class="masonry-item lightbox-link">
           <img src="Image/wedding/01.jpg" alt="" loading="lazy" />
         </a>
 
-        <a href="Image/wedding/02.jpg" target="_blank" class="masonry-item">
+        <a href="Image/wedding/02.jpg" class="masonry-item lightbox-link">
           <img src="Image/wedding/02.jpg" alt="" loading="lazy" />
         </a>
 
-        <a href="Image/wedding/03.jpg" target="_blank" class="masonry-item">
+        <a href="Image/wedding/03.jpg" class="masonry-item lightbox-link">
           <img src="Image/wedding/03.jpg" alt="" loading="lazy" />
         </a>
 
-        <a href="Image/wedding/04.jpg" target="_blank" class="masonry-item">
+        <a href="Image/wedding/04.jpg" class="masonry-item lightbox-link">
           <img src="Image/wedding/04.jpg" alt="" loading="lazy" />
         </a>
 
-        <a href="Image/wedding/05.jpg" target="_blank" class="masonry-item">
+        <a href="Image/wedding/05.jpg" class="masonry-item lightbox-link">
           <img src="Image/wedding/05.jpg" alt="" loading="lazy" />
         </a>
 
-        <a href="Image/wedding/06.jpg" target="_blank" class="masonry-item">
+        <a href="Image/wedding/06.jpg" class="masonry-item lightbox-link">
           <img src="Image/wedding/06.jpg" alt="" loading="lazy" />
         </a>
-        <a href="Image/wedding/07.jpg" target="_blank" class="masonry-item">
-        <img src="Image/wedding/07.jpg" alt="" loading="lazy" />
-        </a>
 
-        <a href="Image/wedding/08.jpg" target="_blank" class="masonry-item">
-        <img src="Image/wedding/08.jpg" alt="" loading="lazy" />
+        <!-- Добавляй новые фото по образцу:
+        <a href="Image/wedding/07.jpg" class="masonry-item lightbox-link">
+          <img src="Image/wedding/07.jpg" alt="" loading="lazy" />
         </a>
-
-        <a href="Image/wedding/09.jpg" target="_blank" class="masonry-item">
-        <img src="Image/wedding/09.jpg" alt="" loading="lazy" />
-        </a>
-
-        <a href="Image/wedding/10.jpg" target="_blank" class="masonry-item">
-        <img src="Image/wedding/10.jpg" alt="" loading="lazy" />
-        </a>
-
-         <a href="Image/wedding/11.jpg" target="_blank" class="masonry-item">
-        <img src="Image/wedding/11.jpg" alt="" loading="lazy" />
-        </a>
-
-         <a href="Image/wedding/12.jpg" target="_blank" class="masonry-item">
-        <img src="Image/wedding/12.jpg" alt="" loading="lazy" />
-        </a>
-
-         <a href="Image/wedding/13.jpg" target="_blank" class="masonry-item">
-        <img src="Image/wedding/13.jpg" alt="" loading="lazy" />
-        </a>
+        -->
 
       </div>
     </div>
@@ -92,6 +71,43 @@
     <span>© 2026 Фаниль</span>
     <span>Kazan, Russia</span>
   </footer>
+
+  <!-- Лайтбокс -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightbox-close">×</span>
+    <img src="" alt="" id="lightbox-img" />
+  </div>
+
+  <script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.getElementById("lightbox-close");
+
+    document.querySelectorAll(".lightbox-link").forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        lightboxImg.src = link.getAttribute("href");
+        lightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove("active");
+      lightboxImg.src = "";
+      document.body.style.overflow = "";
+    }
+
+    closeBtn.addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeLightbox();
+    });
+  </script>
 
 </body>
 </html>
