@@ -654,3 +654,63 @@ footer {
     font-size: 16px;
   }
 }
+/* ============================================
+   ГАЛЕРЕЯ ПОДБОРКИ — ровная сетка
+   ============================================ */
+.collection-gallery {
+  padding: 40px 0 100px;
+}
+
+.masonry {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.masonry-item {
+  display: block;
+  overflow: hidden;
+  border-radius: 12px;
+  aspect-ratio: 1 / 1;        /* квадрат */
+  background: #111;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.masonry-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+}
+
+.masonry-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* обрезает по центру, чтобы заполнить квадрат */
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.masonry-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Планшет — 2 колонки */
+@media (max-width: 900px) {
+  .masonry {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .masonry-item {
+    border-radius: 10px;
+  }
+}
+
+/* Телефон — 2 колонки, плотнее */
+@media (max-width: 560px) {
+  .masonry {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .masonry-item {
+    border-radius: 8px;
+  }
+}
