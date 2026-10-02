@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Маркетплейсы — Фаниль</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">ФАНИЛЬ</a>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="video.html">Видео</a>
+      <a href="photo.html" class="active">Фото</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <a href="photo.html" class="back-link">← Все подборки</a>
+      <div class="section-number">Marketplace</div>
+      <h1 class="page-title">Маркетплейсы</h1>
+      <p class="page-lead">
+        Карточки товаров для маркетплейсов.
+      </p>
+    </div>
+  </section>
+
+  <section class="collection-gallery">
+    <div class="container">
+      <div class="masonry">
+
+        <a href="Image/marketplace/01.jpg" class="masonry-item lightbox-link">
+          <img src="Image/marketplace/01.jpg" alt="" loading="lazy" />
+        </a>
+
+        <a href="Image/marketplace/02.jpg" class="masonry-item lightbox-link">
+          <img src="Image/marketplace/02.jpg" alt="" loading="lazy" />
+        </a>
+
+        <a href="Image/marketplace/03.jpg" class="masonry-item lightbox-link">
+          <img src="Image/marketplace/03.jpg" alt="" loading="lazy" />
+        </a>
+
+        <a href="Image/marketplace/04.jpg" class="masonry-item lightbox-link">
+          <img src="Image/marketplace/04.jpg" alt="" loading="lazy" />
+        </a>
+
+        <a href="Image/marketplace/05.jpg" class="masonry-item lightbox-link">
+          <img src="Image/marketplace/05.jpg" alt="" loading="lazy" />
+        </a>
+
+        <a href="Image/marketplace/06.jpg" class="masonry-item lightbox-link">
+          <img src="Image/marketplace/06.jpg" alt="" loading="lazy" />
+        </a>
+
+        <!-- Добавляй новые фото по образцу:
+
+        <a href="Image/marketplace/07.jpg" class="masonry-item lightbox-link">
+          <img src="Image/marketplace/07.jpg" alt="" loading="lazy" />
+        </a>
+
+        -->
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Фаниль</span>
+    <span>Kazan, Russia</span>
+  </footer>
+
+  <!-- Лайтбокс с навигацией -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightbox-close">×</span>
+    <span class="lightbox-prev" id="lightbox-prev">‹</span>
+    <span class="lightbox-next" id="lightbox-next">›</span>
+    <img src="" alt="" id="lightbox-img" />
+    <div class="lightbox-counter" id="lightbox-counter"></div>
+  </div>
+
+  <script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.getElementById("lightbox-close");
+    const prevBtn = document.getElementById("lightbox-prev");
+    const nextBtn = document.getElementById("lightbox-next");
+    const counter = document.getElementById("lightbox-counter");
+
+    const links = Array.from(document.querySelectorAll(".lightbox-link"));
+    let currentIndex = 0;
+
+    function showImage(index) {
+      currentIndex = (index + links.length) % links.length;
+      const href = links[currentIndex].getAttribute("href");
+      lightboxImg.src = href;
+      counter.textContent = (currentIndex + 1) + " / " + links.length;
+    }
+
+    function openLightbox(index) {
+      showImage(index);
+      lightbox.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("active");
+      lightboxImg.src = "";
+      document.body.style.overflow = "";
+    }
+
+    links.forEach(function (link, i) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        openLightbox(i);
+      });
+    });
+
+    closeBtn.addEventListener("click", closeLightbox);
+    prevBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      showImage(currentIndex - 1);
+    });
+    nextBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      showImage(currentIndex + 1);
+    });
+
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (!lightbox.classList.contains("active")) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") showImage(currentIndex - 1);
+      if (e.key === "ArrowRight") showImage(currentIndex + 1);
+    });
+  </script>
+
+</body>
+</html>
