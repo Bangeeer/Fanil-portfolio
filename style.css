@@ -134,7 +134,7 @@ header nav a.active::after {
 }
 
 /* ============================================
-   HERO С ВИДЕО НА ВЕСЬ ЭКРАН (без текста)
+   HERO С ВИДЕО НА ВЕСЬ ЭКРАН
    ============================================ */
 .hero-video-bg {
   position: relative;
@@ -155,7 +155,7 @@ header nav a.active::after {
 }
 
 /* ============================================
-   ABOUT: текст ФАНИЛЬ + фото параллельно
+   ABOUT: текст ФАНИЛЬ + фото
    ============================================ */
 .about-section {
   padding: 100px 0;
@@ -206,7 +206,6 @@ header nav a.active::after {
   border-radius: 12px;
 }
 
-/* Нижний текст — курсив, мягче */
 .about-bottom {
   max-width: 800px;
 }
@@ -238,7 +237,7 @@ header nav a.active::after {
 }
 
 /* ============================================
-   EXPLORE (ссылки на разделы)
+   EXPLORE
    ============================================ */
 #explore {
   padding: 60px 0 100px;
@@ -294,7 +293,7 @@ section {
 }
 
 /* ============================================
-   ВНУТРЕННИЕ СТРАНИЦЫ (video, photo, contacts)
+   ВНУТРЕННИЕ СТРАНИЦЫ
    ============================================ */
 .page-hero {
   padding: 160px 0 20px;
@@ -378,89 +377,6 @@ footer {
   letter-spacing: 0.05em;
 }
 
-/* ============================================
-   АДАПТИВ
-   ============================================ */
-@media (max-width: 768px) {
-  header {
-    padding: 18px 20px;
-  }
-  header nav {
-    gap: 16px;
-  }
-  header nav a {
-    font-size: 11px;
-  }
-  .logo {
-    font-size: 14px;
-  }
-
-  .container {
-    padding: 0 20px;
-  }
-  section {
-    padding: 70px 0;
-  }
-
-  .about-section {
-    padding: 70px 0;
-  }
-  .about-hero {
-    margin-bottom: 60px;
-  }
-  .about-hero h1 {
-    font-size: clamp(48px, 14vw, 80px);
-  }
-  .hero-label {
-    font-size: 10px;
-  }
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .about-photo {
-    order: -1;
-  }
-
-  .page-hero {
-    padding: 120px 0 10px;
-  }
-  .video-item {
-    margin-bottom: 50px;
-  }
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-
-  #showreel {
-    padding: 40px 0 70px;
-  }
-  .showreel-video {
-    border-radius: 8px;
-  }
-
-  footer {
-    padding: 30px 20px;
-    flex-direction: column;
-    gap: 8px;
-  }
-}
-
-@media (max-width: 480px) {
-  .gallery-grid {
-    grid-template-columns: 1fr;
-  }
-}
-  .about-top {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    margin-bottom: 60px;
-  }
-
-  .about-photo {
-    order: -1;
-  }
 /* ============================================
    CONTACT SECTION
    ============================================ */
@@ -549,19 +465,6 @@ footer {
   color: #fff;
 }
 
-@media (max-width: 768px) {
-  .contact-section {
-    padding: 60px 0 70px;
-  }
-  .contact-form {
-    margin-bottom: 40px;
-  }
-  .socials-row {
-    flex-direction: column;
-    gap: 14px;
-  }
-}
-
 /* ============================================
    COLLECTIONS (подборки)
    ============================================ */
@@ -636,24 +539,6 @@ footer {
   color: #fff;
 }
 
-@media (max-width: 900px) {
-  .collections-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-}
-
-@media (max-width: 560px) {
-  .collections-grid {
-    grid-template-columns: 1fr;
-  }
-  .collection-info {
-    padding: 16px 18px 20px;
-  }
-  .collection-title {
-    font-size: 16px;
-  }
-}
 /* ============================================
    ГАЛЕРЕЯ ПОДБОРКИ — ровная сетка
    ============================================ */
@@ -671,7 +556,7 @@ footer {
   display: block;
   overflow: hidden;
   border-radius: 12px;
-  aspect-ratio: 1 / 1;        /* квадрат */
+  aspect-ratio: 1 / 1;
   background: #111;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
@@ -684,7 +569,7 @@ footer {
 .masonry-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;           /* обрезает по центру, чтобы заполнить квадрат */
+  object-fit: cover;
   display: block;
   transition: transform 0.6s ease;
 }
@@ -693,27 +578,6 @@ footer {
   transform: scale(1.05);
 }
 
-/* Планшет — 2 колонки */
-@media (max-width: 900px) {
-  .masonry {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-  .masonry-item {
-    border-radius: 10px;
-  }
-}
-
-/* Телефон — 2 колонки, плотнее */
-@media (max-width: 560px) {
-  .masonry {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
-  .masonry-item {
-    border-radius: 8px;
-  }
-}
 /* ============================================
    LIGHTBOX
    ============================================ */
@@ -771,18 +635,6 @@ footer {
   to   { opacity: 1; }
 }
 
-@media (max-width: 768px) {
-  .lightbox {
-    padding: 20px;
-  }
-  .lightbox-close {
-    top: 12px;
-    right: 12px;
-    font-size: 32px;
-    width: 40px;
-    height: 40px;
-  }
-}
 /* ============================================
    LIGHTBOX NAVIGATION
    ============================================ */
@@ -834,25 +686,6 @@ footer {
   z-index: 1001;
 }
 
-@media (max-width: 768px) {
-  .lightbox-prev,
-  .lightbox-next {
-    font-size: 40px;
-    width: 48px;
-    height: 48px;
-  }
-  .lightbox-prev {
-    left: 8px;
-  }
-  .lightbox-next {
-    right: 8px;
-  }
-  .lightbox-counter {
-    bottom: 16px;
-    font-size: 12px;
-    padding: 6px 12px;
-  }
-}
 /* ============================================
    VIDEO GRID
    ============================================ */
@@ -899,6 +732,7 @@ footer {
   transform: scale(1.05);
 }
 
+/* SVG-иконка Play */
 .video-play {
   position: absolute;
   top: 50%;
@@ -909,18 +743,24 @@ footer {
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.65);
   color: #fff;
-  font-size: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-left: 4px;
-  transition: background 0.3s, transform 0.3s;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
+  pointer-events: none;
+}
+
+.video-play svg {
+  width: 24px;
+  height: 24px;
+  margin-left: 4px;
+  display: block;
 }
 
 .video-card:hover .video-play {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   color: #000;
   transform: translate(-50%, -50%) scale(1.1);
 }
@@ -1033,11 +873,142 @@ footer {
   background: rgba(255, 255, 255, 0.25);
 }
 
-/* Мобильный */
+/* ============================================
+   АДАПТИВ
+   ============================================ */
 @media (max-width: 900px) {
   .video-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
+  }
+  .collections-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .masonry {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .masonry-item {
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 18px 20px;
+  }
+  header nav {
+    gap: 16px;
+  }
+  header nav a {
+    font-size: 11px;
+  }
+  .logo {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+  section {
+    padding: 70px 0;
+  }
+
+  .about-section {
+    padding: 70px 0;
+  }
+  .about-top {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+  .about-photo {
+    order: -1;
+  }
+  .about-hero h1 {
+    font-size: clamp(48px, 14vw, 80px);
+  }
+  .hero-label {
+    font-size: 10px;
+  }
+
+  .page-hero {
+    padding: 120px 0 10px;
+  }
+  .video-item {
+    margin-bottom: 50px;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  #showreel {
+    padding: 40px 0 70px;
+  }
+  .showreel-video {
+    border-radius: 8px;
+  }
+
+  .contact-section {
+    padding: 60px 0 70px;
+  }
+  .contact-form {
+    margin-bottom: 40px;
+  }
+  .socials-row {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .lightbox {
+    padding: 20px;
+  }
+  .lightbox-close {
+    top: 12px;
+    right: 12px;
+    font-size: 32px;
+    width: 40px;
+    height: 40px;
+  }
+  .lightbox-prev,
+  .lightbox-next {
+    font-size: 40px;
+    width: 48px;
+    height: 48px;
+  }
+  .lightbox-prev { left: 8px; }
+  .lightbox-next { right: 8px; }
+  .lightbox-counter {
+    bottom: 16px;
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .video-lightbox {
+    padding: 20px;
+  }
+  .video-lightbox-prev,
+  .video-lightbox-next {
+    font-size: 40px;
+    width: 48px;
+    height: 48px;
+  }
+  .video-lightbox-prev { left: 8px; }
+  .video-lightbox-next { right: 8px; }
+  .video-lightbox-close {
+    top: 12px;
+    right: 12px;
+    font-size: 32px;
+    width: 40px;
+    height: 40px;
+  }
+
+  footer {
+    padding: 30px 20px;
+    flex-direction: column;
+    gap: 8px;
   }
 }
 
@@ -1051,26 +1022,26 @@ footer {
   .video-name {
     font-size: 16px;
   }
-  .video-lightbox {
-    padding: 20px;
+  .collections-grid {
+    grid-template-columns: 1fr;
   }
-  .video-lightbox-prev,
-  .video-lightbox-next {
-    font-size: 40px;
-    width: 48px;
-    height: 48px;
+  .collection-info {
+    padding: 16px 18px 20px;
   }
-  .video-lightbox-prev {
-    left: 8px;
+  .collection-title {
+    font-size: 16px;
   }
-  .video-lightbox-next {
-    right: 8px;
+  .masonry {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
   }
-  .video-lightbox-close {
-    top: 12px;
-    right: 12px;
-    font-size: 32px;
-    width: 40px;
-    height: 40px;
+  .masonry-item {
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
   }
 }
