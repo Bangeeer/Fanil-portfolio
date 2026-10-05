@@ -853,3 +853,224 @@ footer {
     padding: 6px 12px;
   }
 }
+/* ============================================
+   VIDEO GRID
+   ============================================ */
+.video-grid-section {
+  padding: 40px 0 100px;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.video-card {
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #111;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.video-cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #1a1a1a;
+}
+
+.video-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  display: block;
+}
+
+.video-card:hover .video-cover img {
+  transform: scale(1.05);
+}
+
+.video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 4px;
+  transition: background 0.3s, transform 0.3s;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.video-card:hover .video-play {
+  background: rgba(255, 255, 255, 0.9);
+  color: #000;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-meta {
+  padding: 20px 22px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.video-name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.video-tag {
+  font-size: 12px;
+  color: #888;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ============================================
+   VIDEO LIGHTBOX
+   ============================================ */
+.video-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 40px;
+  animation: lightboxFade 0.3s ease;
+}
+
+.video-lightbox.active {
+  display: flex;
+}
+
+.video-lightbox video {
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: 8px;
+  background: #000;
+  outline: none;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.video-lightbox-close {
+  position: fixed;
+  top: 24px;
+  right: 32px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  line-height: 1;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: background 0.3s;
+  z-index: 1001;
+}
+
+.video-lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.video-lightbox-prev,
+.video-lightbox-next {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 60px;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  line-height: 1;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: background 0.3s;
+  z-index: 1001;
+}
+
+.video-lightbox-prev {
+  left: 24px;
+}
+
+.video-lightbox-next {
+  right: 24px;
+}
+
+.video-lightbox-prev:hover,
+.video-lightbox-next:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Мобильный */
+@media (max-width: 900px) {
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 560px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+  .video-meta {
+    padding: 16px 18px 20px;
+  }
+  .video-name {
+    font-size: 16px;
+  }
+  .video-lightbox {
+    padding: 20px;
+  }
+  .video-lightbox-prev,
+  .video-lightbox-next {
+    font-size: 40px;
+    width: 48px;
+    height: 48px;
+  }
+  .video-lightbox-prev {
+    left: 8px;
+  }
+  .video-lightbox-next {
+    right: 8px;
+  }
+  .video-lightbox-close {
+    top: 12px;
+    right: 12px;
+    font-size: 32px;
+    width: 40px;
+    height: 40px;
+  }
+}
