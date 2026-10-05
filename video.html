@@ -23,78 +23,74 @@
       <div class="section-number">Video</div>
       <h1 class="page-title">Видео</h1>
       <p class="page-lead">
-        Рекламные ролики, музыкальные клипы, репортажи и клипы для соцсетей.
+        Категории видеоработ. Выберите раздел.
       </p>
     </div>
   </section>
 
-  <section class="video-grid-section">
+  <section class="collections">
     <div class="container">
-      <div class="video-grid">
+      <div class="collections-grid">
 
-        <a href="video/showreel.webm" class="video-card video-link">
-          <div class="video-cover">
-            <video src="video/showreel.webm#t=3" muted preload="metadata" playsinline></video>
-            <span class="video-play">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </span>
+        <a href="video-reportage.html" class="collection-card">
+          <div class="collection-cover">
+            <img src="Image/cover-video-reportage.jpg" alt="Репортажка" loading="lazy" />
           </div>
-          <div class="video-meta">
-            <h3 class="video-name">Showreel 2026</h3>
-            <span class="video-tag">Showreel</span>
+          <div class="collection-info">
+            <h3 class="collection-title">Репортажка</h3>
+            <span class="collection-link">Смотреть →</span>
           </div>
         </a>
 
-        <a href="video/Music video/Айлана - Хыялый.mp4" class="video-card video-link">
-          <div class="video-cover">
-            <video src="video/Music video/Айлана - Хыялый.mp4#t=3" muted preload="metadata" playsinline></video>
-            <span class="video-play">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </span>
+        <a href="video-wedding.html" class="collection-card">
+          <div class="collection-cover">
+            <img src="Image/cover-video-wedding.jpg" alt="Свадебные" loading="lazy" />
           </div>
-          <div class="video-meta">
-            <h3 class="video-name">Айлана — Хыялый</h3>
-            <span class="video-tag">Music video</span>
+          <div class="collection-info">
+            <h3 class="collection-title">Свадебные</h3>
+            <span class="collection-link">Смотреть →</span>
           </div>
         </a>
 
-        <a href="video/event/mayak.mp4" class="video-card video-link">
-          <div class="video-cover">
-            <video src="video/event/mayak.mp4#t=3" muted preload="metadata" playsinline></video>
-            <span class="video-play">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </span>
+        <a href="video-event.html" class="collection-card">
+          <div class="collection-cover">
+            <img src="Image/cover-video-event.jpg" alt="Отчётники" loading="lazy" />
           </div>
-          <div class="video-meta">
-            <h3 class="video-name">Фестиваль «Маяк» 2026</h3>
-            <span class="video-tag">Отчётник</span>
+          <div class="collection-info">
+            <h3 class="collection-title">Отчётники</h3>
+            <span class="collection-link">Смотреть →</span>
           </div>
         </a>
 
-        <!-- Добавляй новые видео по образцу:
-
-        <a href="video/папка/файл.mp4" class="video-card video-link">
-          <div class="video-cover">
-            <video src="video/папка/файл.mp4#t=3" muted preload="metadata" playsinline></video>
-            <span class="video-play">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </span>
+        <a href="video-music.html" class="collection-card">
+          <div class="collection-cover">
+            <img src="Image/cover-video-music.jpg" alt="Music videos" loading="lazy" />
           </div>
-          <div class="video-meta">
-            <h3 class="video-name">Название</h3>
-            <span class="video-tag">Категория</span>
+          <div class="collection-info">
+            <h3 class="collection-title">Music Videos</h3>
+            <span class="collection-link">Смотреть →</span>
           </div>
         </a>
 
-        -->
+        <a href="video-reels.html" class="collection-card">
+          <div class="collection-cover">
+            <img src="Image/cover-video-reels.jpg" alt="Reels" loading="lazy" />
+          </div>
+          <div class="collection-info">
+            <h3 class="collection-title">Reels / Shorts</h3>
+            <span class="collection-link">Смотреть →</span>
+          </div>
+        </a>
+
+        <a href="video-commercial.html" class="collection-card">
+          <div class="collection-cover">
+            <img src="Image/cover-video-commercial.jpg" alt="Commercial" loading="lazy" />
+          </div>
+          <div class="collection-info">
+            <h3 class="collection-title">Commercial</h3>
+            <span class="collection-link">Смотреть →</span>
+          </div>
+        </a>
 
       </div>
     </div>
@@ -104,72 +100,6 @@
     <span>© 2026 Фаниль</span>
     <span>Kazan, Russia</span>
   </footer>
-
-  <!-- Видео-лайтбокс -->
-  <div class="video-lightbox" id="video-lightbox">
-    <span class="video-lightbox-close" id="video-lightbox-close">×</span>
-    <span class="video-lightbox-prev" id="video-lightbox-prev">‹</span>
-    <span class="video-lightbox-next" id="video-lightbox-next">›</span>
-    <video id="video-lightbox-player" controls playsinline preload="metadata"></video>
-  </div>
-
-  <script>
-    const videoLightbox = document.getElementById("video-lightbox");
-    const videoPlayer = document.getElementById("video-lightbox-player");
-    const videoClose = document.getElementById("video-lightbox-close");
-    const videoPrev = document.getElementById("video-lightbox-prev");
-    const videoNext = document.getElementById("video-lightbox-next");
-
-    const videoLinks = Array.from(document.querySelectorAll(".video-link"));
-    let videoIndex = 0;
-
-    function showVideo(index) {
-      videoIndex = (index + videoLinks.length) % videoLinks.length;
-      videoPlayer.src = videoLinks[videoIndex].getAttribute("href");
-      videoPlayer.play();
-    }
-
-    function openVideoLightbox(index) {
-      showVideo(index);
-      videoLightbox.classList.add("active");
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeVideoLightbox() {
-      videoLightbox.classList.remove("active");
-      videoPlayer.pause();
-      videoPlayer.src = "";
-      document.body.style.overflow = "";
-    }
-
-    videoLinks.forEach(function (link, i) {
-      link.addEventListener("click", function (e) {
-        e.preventDefault();
-        openVideoLightbox(i);
-      });
-    });
-
-    videoClose.addEventListener("click", closeVideoLightbox);
-    videoPrev.addEventListener("click", function (e) {
-      e.stopPropagation();
-      showVideo(videoIndex - 1);
-    });
-    videoNext.addEventListener("click", function (e) {
-      e.stopPropagation();
-      showVideo(videoIndex + 1);
-    });
-
-    videoLightbox.addEventListener("click", function (e) {
-      if (e.target === videoLightbox) closeVideoLightbox();
-    });
-
-    document.addEventListener("keydown", function (e) {
-      if (!videoLightbox.classList.contains("active")) return;
-      if (e.key === "Escape") closeVideoLightbox();
-      if (e.key === "ArrowLeft") showVideo(videoIndex - 1);
-      if (e.key === "ArrowRight") showVideo(videoIndex + 1);
-    });
-  </script>
 
 </body>
 </html>
