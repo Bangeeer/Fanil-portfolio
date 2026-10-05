@@ -28,41 +28,48 @@
     </div>
   </section>
 
-  <section class="video-list">
+  <section class="video-grid-section">
     <div class="container">
+      <div class="video-grid">
 
-      <!-- Видео 1 -->
-      <div class="video-item">
-        <div class="video-info">
-          <div class="section-number">01 — Showreel</div>
-          <h2 class="video-title">Showreel 2026</h2>
-        </div>
-        <video
-          class="showreel-video"
-          controls
-          playsinline
-          preload="metadata">
-          <source src="video/showreel.mp4" type="video/mp4" />
-          Ваш браузер не поддерживает видео.
-        </video>
+        <a href="video/showreel.mp4" class="video-card video-link">
+          <div class="video-cover">
+            <img src="Image/video-showreel.jpg" alt="Showreel" loading="lazy" />
+            <span class="video-play">▶</span>
+          </div>
+          <div class="video-meta">
+            <h3 class="video-name">Showreel 2026</h3>
+            <span class="video-tag">Showreel</span>
+          </div>
+        </a>
+
+        <a href="video/Music video/Айлана - Хыялый.mp4" class="video-card video-link">
+          <div class="video-cover">
+            <img src="Image/video-music.jpg" alt="Айлана — Хыялый" loading="lazy" />
+            <span class="video-play">▶</span>
+          </div>
+          <div class="video-meta">
+            <h3 class="video-name">Айлана — Хыялый</h3>
+            <span class="video-tag">Music video</span>
+          </div>
+        </a>
+
+        <!-- Добавляй новые видео по образцу:
+
+        <a href="video/новое-видео.mp4" class="video-card video-link">
+          <div class="video-cover">
+            <img src="Image/video-новое.jpg" alt="Название" loading="lazy" />
+            <span class="video-play">▶</span>
+          </div>
+          <div class="video-meta">
+            <h3 class="video-name">Название</h3>
+            <span class="video-tag">Категория</span>
+          </div>
+        </a>
+
+        -->
+
       </div>
-
-      <!-- Видео 2 -->
-      <div class="video-item">
-        <div class="video-info">
-          <div class="section-number">02 — Music video</div>
-          <h2 class="video-title">Айлана — Хыялый</h2>
-        </div>
-        <video
-          class="showreel-video"
-          controls
-          playsinline
-          preload="metadata">
-          <source src="video/Music video/Айлана - Хыялый.mp4" type="video/mp4" />
-          Ваш браузер не поддерживает видео.
-        </video>
-      </div>
-
     </div>
   </section>
 
@@ -70,6 +77,72 @@
     <span>© 2026 Фаниль</span>
     <span>Kazan, Russia</span>
   </footer>
+
+  <!-- Видео-лайтбокс -->
+  <div class="video-lightbox" id="video-lightbox">
+    <span class="video-lightbox-close" id="video-lightbox-close">×</span>
+    <span class="video-lightbox-prev" id="video-lightbox-prev">‹</span>
+    <span class="video-lightbox-next" id="video-lightbox-next">›</span>
+    <video id="video-lightbox-player" controls playsinline preload="metadata"></video>
+  </div>
+
+  <script>
+    const videoLightbox = document.getElementById("video-lightbox");
+    const videoPlayer = document.getElementById("video-lightbox-player");
+    const videoClose = document.getElementById("video-lightbox-close");
+    const videoPrev = document.getElementById("video-lightbox-prev");
+    const videoNext = document.getElementById("video-lightbox-next");
+
+    const videoLinks = Array.from(document.querySelectorAll(".video-link"));
+    let videoIndex = 0;
+
+    function showVideo(index) {
+      videoIndex = (index + videoLinks.length) % videoLinks.length;
+      videoPlayer.src = videoLinks[videoIndex].getAttribute("href");
+      videoPlayer.play();
+    }
+
+    function openVideoLightbox(index) {
+      showVideo(index);
+      videoLightbox.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeVideoLightbox() {
+      videoLightbox.classList.remove("active");
+      videoPlayer.pause();
+      videoPlayer.src = "";
+      document.body.style.overflow = "";
+    }
+
+    videoLinks.forEach(function (link, i) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        openVideoLightbox(i);
+      });
+    });
+
+    videoClose.addEventListener("click", closeVideoLightbox);
+    videoPrev.addEventListener("click", function (e) {
+      e.stopPropagation();
+      showVideo(videoIndex - 1);
+    });
+    videoNext.addEventListener("click", function (e) {
+      e.stopPropagation();
+      showVideo(videoIndex + 1);
+    });
+
+    videoLightbox.addEventListener("click", function (e) {
+      if (e.target === videoLightbox) closeVideoLightbox();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (!videoLightbox.classList.contains("active")) return;
+      if (e.key === "Escape") closeVideoLightbox();
+      if (e.key === "ArrowLeft") showVideo(videoIndex - 1);
+      if (e.key === "ArrowRight") showVideo(videoIndex + 1);
+    });
+  </script>
 
 </body>
 </html>
