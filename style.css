@@ -1045,3 +1045,129 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+/* ============================================
+   VIDEO SHOWCASE (зигзаг)
+   ============================================ */
+.showcase {
+  padding: 20px 0 100px;
+}
+
+.showcase-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 140px;
+}
+
+.showcase-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Меняем местами: текст слева, фото справа */
+.showcase-reverse .showcase-media {
+  order: 2;
+}
+.showcase-reverse .showcase-info {
+  order: 1;
+}
+
+/* Фото */
+.showcase-media {
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #111;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.showcase-media:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.showcase-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s ease;
+}
+
+.showcase-media:hover img {
+  transform: scale(1.05);
+}
+
+/* Текст */
+.showcase-info {
+  max-width: 500px;
+}
+
+.showcase-number {
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.showcase-title {
+  font-size: clamp(36px, 5vw, 72px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin: 0 0 24px;
+}
+
+.showcase-desc {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.55;
+  color: #aaa;
+  margin: 0 0 32px;
+  letter-spacing: -0.01em;
+}
+
+.showcase-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #333;
+  transition: border-color 0.3s, gap 0.3s;
+}
+
+.showcase-link:hover {
+  border-color: #fff;
+  gap: 14px;
+}
+
+/* ============================================
+   АДАПТИВ
+   ============================================ */
+@media (max-width: 900px) {
+  .showcase-item {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 80px;
+  }
+  .showcase-reverse .showcase-media,
+  .showcase-reverse .showcase-info {
+    order: initial;
+  }
+  .showcase-info {
+    max-width: 100%;
+  }
+  .showcase-desc {
+    font-size: 17px;
+  }
+  .showcase-title {
+    font-size: clamp(32px, 9vw, 56px);
+  }
+}
