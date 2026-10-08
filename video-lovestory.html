@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Love Story — Фаниль</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">ФАНИЛЬ</a>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="video.html" class="active">Видео</a>
+      <a href="photo.html">Фото</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </header>
+
+  <section class="category-hero">
+    <div class="container category-hero-grid">
+
+      <div class="category-info">
+        <a href="video.html" class="back-link">← Все категории</a>
+        <div class="section-number">Love Story</div>
+        <h1 class="category-title">
+          Love<br />Story
+        </h1>
+        <p class="category-desc">
+          Тёплые истории о двух людях. Нежная, искренняя и живая съёмка, которая сохранит
+          ваши эмоции на годы.
+        </p>
+        <p class="category-desc">
+          Снимаем <em>до свадьбы</em>, <em>в день свадьбы</em> и <em>в годовщину</em>.
+          Прогулки, любимые места, случайные улыбки — всё, что делает вашу историю вашей.
+        </p>
+        <p class="category-desc">
+          Здесь нет постановки ради постановки — только <strong>вы и ваши чувства</strong>.
+          Так рождается видео, которое хочется пересматривать снова и снова.
+        </p>
+        <a href="contacts.html" class="category-cta">
+          <span class="cta-dot"></span>
+          Заказать
+        </a>
+      </div>
+
+      <div class="category-media">
+        <img src="Image/cover-video-lovestory.jpg" alt="Love Story" />
+      </div>
+
+    </div>
+  </section>
+
+  <section class="video-grid-section">
+    <div class="container">
+      <div class="video-grid">
+
+        <a href="video/lovestory/lovestory-01.mp4" class="video-card video-link">
+          <div class="video-cover">
+            <video src="video/lovestory/lovestory-01.mp4#t=3" muted preload="metadata" playsinline></video>
+            <span class="video-play">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </span>
+          </div>
+          <div class="video-meta">
+            <h3 class="video-name">Аня &amp; Максим</h3>
+            <span class="video-tag">Love Story</span>
+          </div>
+        </a>
+
+        <!-- Добавляй новые видео по образцу:
+
+        <a href="video/lovestory/lovestory-02.mp4" class="video-card video-link">
+          <div class="video-cover">
+            <video src="video/lovestory/lovestory-02.mp4#t=3" muted preload="metadata" playsinline></video>
+            <span class="video-play">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </span>
+          </div>
+          <div class="video-meta">
+            <h3 class="video-name">Название</h3>
+            <span class="video-tag">Love Story</span>
+          </div>
+        </a>
+
+        -->
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Фаниль</span>
+    <span>Kazan, Russia</span>
+  </footer>
+
+  <!-- Видео-лайтбокс -->
+  <div class="video-lightbox" id="video-lightbox">
+    <span class="video-lightbox-close" id="video-lightbox-close">×</span>
+    <span class="video-lightbox-prev" id="video-lightbox-prev">‹</span>
+    <span class="video-lightbox-next" id="video-lightbox-next">›</span>
+    <video id="video-lightbox-player" controls playsinline preload="metadata"></video>
+  </div>
+
+  <script>
+    const videoLightbox = document.getElementById("video-lightbox");
+    const videoPlayer = document.getElementById("video-lightbox-player");
+    const videoClose = document.getElementById("video-lightbox-close");
+    const videoPrev = document.getElementById("video-lightbox-prev");
+    const videoNext = document.getElementById("video-lightbox-next");
+
+    const videoLinks = Array.from(document.querySelectorAll(".video-link"));
+    let videoIndex = 0;
+
+    function showVideo(index) {
+      videoIndex = (index + videoLinks.length) % videoLinks.length;
+      videoPlayer.src = videoLinks[videoIndex].getAttribute("href");
+      videoPlayer.play();
+    }
+
+    function openVideoLightbox(index) {
+      showVideo(index);
+      videoLightbox.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeVideoLightbox() {
+      videoLightbox.classList.remove("active");
+      videoPlayer.pause();
+      videoPlayer.src = "";
+      document.body.style.overflow = "";
+    }
+
+    videoLinks.forEach(function (link, i) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        openVideoLightbox(i);
+      });
+    });
+
+    videoClose.addEventListener("click", closeVideoLightbox);
+    videoPrev.addEventListener("click", function (e) { e.stopPropagation(); showVideo(videoIndex - 1); });
+    videoNext.addEventListener("click", function (e) { e.stopPropagation(); showVideo(videoIndex + 1); });
+
+    videoLightbox.addEventListener("click", function (e) {
+      if (e.target === videoLightbox) closeVideoLightbox();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (!videoLightbox.classList.contains("active")) return;
+      if (e.key === "Escape") closeVideoLightbox();
+      if (e.key === "ArrowLeft") showVideo(videoIndex - 1);
+      if (e.key === "ArrowRight") showVideo(videoIndex + 1);
+    });
+  </script>
+
+</body>
+</html>
