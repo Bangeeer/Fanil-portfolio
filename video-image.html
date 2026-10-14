@@ -63,10 +63,7 @@
                 <path d="M8 5v14l11-7z"/>
               </svg>
             </span>
-          </div>
-          <div class="video-meta">
-            <h3 class="video-name">Название работы</h3>
-            <span class="video-tag">Image</span>
+            <span class="video-number">01</span>
           </div>
         </a>
 
@@ -80,10 +77,7 @@
                 <path d="M8 5v14l11-7z"/>
               </svg>
             </span>
-          </div>
-          <div class="video-meta">
-            <h3 class="video-name">Название</h3>
-            <span class="video-tag">Image</span>
+            <span class="video-number">02</span>
           </div>
         </a>
 
@@ -155,22 +149,13 @@
       if (e.key === "ArrowLeft") showVideo(videoIndex - 1);
       if (e.key === "ArrowRight") showVideo(videoIndex + 1);
     });
-  </script>
-    // Авто-определение формата видео (вертикальное / горизонтальное)
+
+    /* Авто-определение формата видео (вертикальное / горизонтальное) */
     videoLinks.forEach(function (link) {
       const video = link.querySelector("video");
       if (!video) return;
-      video.addEventListener("loadedmetadata", function () {
-        if (video.videoHeight > video.videoWidth) {
-          link.classList.add("is-vertical");
-          link.classList.remove("is-horizontal");
-        } else {
-          link.classList.add("is-horizontal");
-          link.classList.remove("is-vertical");
-        }
-      });
-      // Если metadata уже загружена
-      if (video.readyState >= 1) {
+
+      function applyFormat() {
         if (video.videoHeight > video.videoWidth) {
           link.classList.add("is-vertical");
           link.classList.remove("is-horizontal");
@@ -179,6 +164,11 @@
           link.classList.remove("is-vertical");
         }
       }
+
+      video.addEventListener("loadedmetadata", applyFormat);
+      if (video.readyState >= 1) applyFormat();
     });
+  </script>
+
 </body>
 </html>
