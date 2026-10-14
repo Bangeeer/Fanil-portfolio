@@ -21,7 +21,6 @@ body {
   position: relative;
 }
 
-/* Мягкие световые пятна на фоне */
 body::before {
   content: "";
   position: fixed;
@@ -34,7 +33,6 @@ body::before {
     radial-gradient(ellipse 900px 700px at 50% 90%, rgba(180, 80, 200, 0.10), transparent 65%);
 }
 
-/* Лёгкая зернистость */
 body::after {
   content: "";
   position: fixed;
@@ -45,15 +43,8 @@ body::after {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' /%3E%3C/svg%3E");
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
 
 .container {
   max-width: 1200px;
@@ -66,9 +57,7 @@ img {
    ============================================ */
 header {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   z-index: 100;
   display: flex;
   justify-content: space-between;
@@ -87,10 +76,7 @@ header {
   text-transform: uppercase;
 }
 
-header nav {
-  display: flex;
-  gap: 32px;
-}
+header nav { display: flex; gap: 32px; }
 
 header nav a {
   font-size: 13px;
@@ -102,16 +88,12 @@ header nav a {
 }
 
 header nav a:hover,
-header nav a.active {
-  color: #fff;
-}
+header nav a.active { color: #fff; }
 
 header nav a.active::after {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -6px;
+  left: 0; right: 0; bottom: -6px;
   height: 1px;
   background: #fff;
 }
@@ -129,19 +111,14 @@ header nav a.active::after {
   font-weight: 600;
   transition: opacity 0.3s, transform 0.3s;
 }
-.btn:hover {
-  opacity: 0.85;
-  transform: translateY(-2px);
-}
+.btn:hover { opacity: 0.85; transform: translateY(-2px); }
 
 .btn-outline {
   background: transparent;
   color: #fff;
   border: 1px solid #333;
 }
-.btn-outline:hover {
-  border-color: #fff;
-}
+.btn-outline:hover { border-color: #fff; }
 
 .contact-button {
   display: inline-block;
@@ -153,13 +130,10 @@ header nav a.active::after {
   font-weight: 600;
   transition: opacity 0.3s, transform 0.3s;
 }
-.contact-button:hover {
-  opacity: 0.85;
-  transform: translateY(-2px);
-}
+.contact-button:hover { opacity: 0.85; transform: translateY(-2px); }
 
 /* ============================================
-   HERO С ВИДЕО НА ВЕСЬ ЭКРАН
+   HERO С ВИДЕО
    ============================================ */
 .hero-video-bg {
   position: relative;
@@ -171,8 +145,7 @@ header nav a.active::after {
 
 .hero-bg-video {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -182,9 +155,7 @@ header nav a.active::after {
 /* ============================================
    ABOUT
    ============================================ */
-.about-section {
-  padding: 100px 0;
-}
+.about-section { padding: 100px 0; }
 
 .about-top {
   display: grid;
@@ -218,11 +189,7 @@ header nav a.active::after {
   margin-bottom: 32px;
 }
 
-.hero-buttons {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
+.hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
 
 .about-photo img {
   width: 100%;
@@ -231,9 +198,7 @@ header nav a.active::after {
   border-radius: 12px;
 }
 
-.about-bottom {
-  max-width: 800px;
-}
+.about-bottom { max-width: 800px; }
 
 .about-caption {
   font-size: clamp(18px, 2.2vw, 26px);
@@ -245,11 +210,9 @@ header nav a.active::after {
 }
 
 /* ============================================
-   SHOWREEL
+   SHOWREEL / EXPLORE
    ============================================ */
-#showreel {
-  padding: 60px 0 100px;
-}
+#showreel { padding: 60px 0 100px; }
 
 .showreel-video {
   width: 100%;
@@ -261,25 +224,13 @@ header nav a.active::after {
   background: #000;
 }
 
-/* ============================================
-   EXPLORE
-   ============================================ */
-#explore {
-  padding: 60px 0 100px;
-}
-
-.explore-links {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
+#explore { padding: 60px 0 100px; }
+.explore-links { display: flex; gap: 14px; flex-wrap: wrap; }
 
 /* ============================================
    ОБЩИЕ СЕКЦИИ
    ============================================ */
-section {
-  padding: 100px 0;
-}
+section { padding: 100px 0; }
 
 .section-number {
   font-size: 12px;
@@ -313,16 +264,12 @@ section {
   transition: color 0.3s;
   width: fit-content;
 }
-.socials a:hover {
-  color: #fff;
-}
+.socials a:hover { color: #fff; }
 
 /* ============================================
    ВНУТРЕННИЕ СТРАНИЦЫ
    ============================================ */
-.page-hero {
-  padding: 160px 0 20px;
-}
+.page-hero { padding: 160px 0 20px; }
 
 .page-title {
   font-size: clamp(56px, 10vw, 140px);
@@ -348,36 +295,12 @@ section {
   margin-bottom: 24px;
   transition: color 0.3s;
 }
-
-.back-link:hover {
-  color: #fff;
-}
-
-/* VIDEO PAGE (старое) */
-.video-list {
-  padding: 40px 0 100px;
-}
-
-.video-item {
-  margin-bottom: 80px;
-}
-
-.video-info {
-  margin-bottom: 20px;
-}
-
-.video-title {
-  font-size: clamp(24px, 3vw, 40px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
+.back-link:hover { color: #fff; }
 
 /* ============================================
    CONTACT SECTION
    ============================================ */
-.contact-section {
-  padding: 80px 0 100px;
-}
+.contact-section { padding: 80px 0 100px; }
 
 .contact-title {
   font-size: clamp(36px, 6vw, 80px);
@@ -418,14 +341,10 @@ section {
 }
 
 .contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: #666;
-}
+.contact-form textarea::placeholder { color: #666; }
 
 .contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #fff;
-}
+.contact-form textarea:focus { border-color: #fff; }
 
 .contact-form .contact-button {
   align-self: flex-start;
@@ -455,17 +374,12 @@ section {
   letter-spacing: 0.05em;
   transition: color 0.3s;
 }
-
-.social-link:hover {
-  color: #fff;
-}
+.social-link:hover { color: #fff; }
 
 /* ============================================
-   COLLECTIONS (подборки фото)
+   COLLECTIONS (фото-подборки)
    ============================================ */
-.collections {
-  padding: 40px 0 100px;
-}
+.collections { padding: 40px 0 100px; }
 
 .collections-grid {
   display: grid;
@@ -504,9 +418,7 @@ section {
   display: block;
 }
 
-.collection-card:hover .collection-cover img {
-  transform: scale(1.06);
-}
+.collection-card:hover .collection-cover img { transform: scale(1.06); }
 
 .collection-info {
   padding: 20px 22px 24px;
@@ -532,16 +444,12 @@ section {
   transition: color 0.3s;
 }
 
-.collection-card:hover .collection-link {
-  color: #fff;
-}
+.collection-card:hover .collection-link { color: #fff; }
 
 /* ============================================
-   ГАЛЕРЕЯ ПОДБОРКИ
+   ГАЛЕРЕЯ ПОДБОРКИ (masonry для фото)
    ============================================ */
-.collection-gallery {
-  padding: 40px 0 100px;
-}
+.collection-gallery { padding: 40px 0 100px; }
 
 .masonry {
   display: grid;
@@ -571,12 +479,10 @@ section {
   transition: transform 0.6s ease;
 }
 
-.masonry-item:hover img {
-  transform: scale(1.05);
-}
+.masonry-item:hover img { transform: scale(1.05); }
 
 /* ============================================
-   LIGHTBOX
+   LIGHTBOX (фото)
    ============================================ */
 .lightbox {
   position: fixed;
@@ -591,9 +497,7 @@ section {
   animation: lightboxFade 0.3s ease;
 }
 
-.lightbox.active {
-  display: flex;
-}
+.lightbox.active { display: flex; }
 
 .lightbox img {
   max-width: 100%;
@@ -622,19 +526,13 @@ section {
   transition: background 0.3s;
   z-index: 1001;
 }
-
-.lightbox-close:hover {
-  background: rgba(255, 255, 255, 0.25);
-}
+.lightbox-close:hover { background: rgba(255, 255, 255, 0.25); }
 
 @keyframes lightboxFade {
   from { opacity: 0; }
-  to   { opacity: 1; }
+  to { opacity: 1; }
 }
 
-/* ============================================
-   LIGHTBOX NAVIGATION
-   ============================================ */
 .lightbox-prev,
 .lightbox-next {
   position: fixed;
@@ -660,9 +558,7 @@ section {
 .lightbox-next { right: 24px; }
 
 .lightbox-prev:hover,
-.lightbox-next:hover {
-  background: rgba(255, 255, 255, 0.25);
-}
+.lightbox-next:hover { background: rgba(255, 255, 255, 0.25); }
 
 .lightbox-counter {
   position: fixed;
@@ -679,39 +575,52 @@ section {
 }
 
 /* ============================================
-   VIDEO GRID
+   VIDEO GRID — авто-формат через JS
    ============================================ */
-.video-grid-section {
-  padding: 40px 0 100px;
-}
+.video-grid-section { padding: 40px 0 100px; }
 
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  align-items: start;
 }
+
+/* По умолчанию — 2 колонки */
+.video-card { grid-column: span 2; }
+
+/* Горизонтальное — 2 колонки */
+.video-card.is-horizontal { grid-column: span 2; }
+
+/* Вертикальное — 1 колонка */
+.video-card.is-vertical { grid-column: span 1; }
 
 .video-card {
   display: block;
+  position: relative;
   border-radius: 16px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  background: #111;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 0.5s ease;
 }
 
 .video-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6),
+              0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
 .video-cover {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
   overflow: hidden;
   background: #1a1a1a;
+  aspect-ratio: 16 / 9;
+}
+
+.video-card.is-vertical .video-cover {
+  aspect-ratio: 9 / 16;
 }
 
 .video-cover img,
@@ -721,12 +630,23 @@ section {
   object-fit: cover;
   display: block;
   pointer-events: none;
-  transition: transform 0.6s ease;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .video-card:hover .video-cover img,
-.video-card:hover .video-cover video {
-  transform: scale(1.05);
+.video-card:hover .video-cover video { transform: scale(1.06); }
+
+.video-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 45%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
 }
 
 .video-play {
@@ -734,55 +654,51 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 64px;
-  height: 64px;
+  width: 68px;
+  height: 68px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.3s, color 0.3s, transform 0.3s;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background 0.35s ease, transform 0.35s ease, color 0.35s ease;
   pointer-events: none;
+  z-index: 2;
 }
 
 .video-play svg {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   margin-left: 4px;
   display: block;
 }
 
 .video-card:hover .video-play {
-  background: rgba(255, 255, 255, 0.95);
+  background: #fff;
   color: #000;
-  transform: translate(-50%, -50%) scale(1.1);
+  transform: translate(-50%, -50%) scale(1.12);
 }
 
-.video-meta {
-  padding: 20px 22px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-}
-
-.video-name {
-  font-size: 18px;
+.video-number {
+  position: absolute;
+  bottom: 18px;
+  left: 20px;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
+  letter-spacing: 0.25em;
+  color: #fff;
+  z-index: 3;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
-.video-tag {
-  font-size: 12px;
-  color: #888;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
+/* Старые скрываем */
+.video-meta,
+.video-name,
+.video-tag { display: none; }
 
 /* ============================================
    VIDEO LIGHTBOX
@@ -799,9 +715,7 @@ section {
   animation: lightboxFade 0.3s ease;
 }
 
-.video-lightbox.active {
-  display: flex;
-}
+.video-lightbox.active { display: flex; }
 
 .video-lightbox video {
   max-width: 100%;
@@ -830,10 +744,7 @@ section {
   transition: background 0.3s;
   z-index: 1001;
 }
-
-.video-lightbox-close:hover {
-  background: rgba(255, 255, 255, 0.25);
-}
+.video-lightbox-close:hover { background: rgba(255, 255, 255, 0.25); }
 
 .video-lightbox-prev,
 .video-lightbox-next {
@@ -860,16 +771,12 @@ section {
 .video-lightbox-next { right: 24px; }
 
 .video-lightbox-prev:hover,
-.video-lightbox-next:hover {
-  background: rgba(255, 255, 255, 0.25);
-}
+.video-lightbox-next:hover { background: rgba(255, 255, 255, 0.25); }
 
 /* ============================================
-   VIDEO SHOWCASE (зигзаг на video.html)
+   VIDEO SHOWCASE (страница video.html)
    ============================================ */
-.showcase {
-  padding: 20px 0 120px;
-}
+.showcase { padding: 20px 0 120px; }
 
 .showcase-item {
   display: grid;
@@ -879,9 +786,7 @@ section {
   margin-bottom: 140px;
 }
 
-.showcase-item:last-child {
-  margin-bottom: 0;
-}
+.showcase-item:last-child { margin-bottom: 0; }
 
 .showcase-reverse .showcase-media { order: 2; }
 .showcase-reverse .showcase-info { order: 1; }
@@ -908,13 +813,9 @@ section {
   transition: transform 0.8s ease;
 }
 
-.showcase-media:hover img {
-  transform: scale(1.05);
-}
+.showcase-media:hover img { transform: scale(1.05); }
 
-.showcase-info {
-  max-width: 500px;
-}
+.showcase-info { max-width: 500px; }
 
 .showcase-number {
   font-size: 13px;
@@ -955,17 +856,12 @@ section {
   transition: border-color 0.3s, gap 0.3s;
 }
 
-.showcase-link:hover {
-  border-color: #fff;
-  gap: 14px;
-}
+.showcase-link:hover { border-color: #fff; gap: 14px; }
 
 /* ============================================
-   CATEGORY HERO (страница категории видео)
+   CATEGORY HERO (страница категории)
    ============================================ */
-.category-hero {
-  padding: 160px 0 80px;
-}
+.category-hero { padding: 160px 0 80px; }
 
 .category-hero-grid {
   display: grid;
@@ -974,9 +870,7 @@ section {
   align-items: center;
 }
 
-.category-info {
-  max-width: 520px;
-}
+.category-info { max-width: 520px; }
 
 .category-title {
   font-size: clamp(48px, 7vw, 110px);
@@ -995,15 +889,8 @@ section {
   max-width: 460px;
 }
 
-.category-desc em {
-  font-style: italic;
-  color: #fff;
-}
-
-.category-desc strong {
-  font-weight: 700;
-  color: #fff;
-}
+.category-desc em { font-style: italic; color: #fff; }
+.category-desc strong { font-weight: 700; color: #fff; }
 
 .category-cta {
   display: inline-flex;
@@ -1021,10 +908,7 @@ section {
   transition: opacity 0.3s, transform 0.3s;
 }
 
-.category-cta:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
-}
+.category-cta:hover { opacity: 0.9; transform: translateY(-2px); }
 
 .cta-dot {
   width: 8px;
@@ -1042,7 +926,8 @@ section {
   box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
 }
 
-.category-media img {
+.category-media img,
+.category-media video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1065,19 +950,21 @@ footer {
 /* ============================================
    АДАПТИВ
    ============================================ */
+@media (max-width: 1100px) {
+  .video-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
 @media (max-width: 900px) {
   .video-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 14px;
   }
-  .collections-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-  .masonry {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
+  .video-card,
+  .video-card.is-horizontal,
+  .video-card.is-vertical { grid-column: span 1; }
+
+  .collections-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .masonry { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .masonry-item { border-radius: 10px; }
 
   .showcase-item {
@@ -1086,18 +973,13 @@ footer {
     margin-bottom: 80px;
   }
   .showcase-reverse .showcase-media,
-  .showcase-reverse .showcase-info {
-    order: initial;
-  }
+  .showcase-reverse .showcase-info { order: initial; }
   .showcase-info { max-width: 100%; }
   .showcase-desc { font-size: 17px; }
   .showcase-title { font-size: clamp(32px, 9vw, 56px); }
 
   .category-hero { padding: 120px 0 60px; }
-  .category-hero-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
+  .category-hero-grid { grid-template-columns: 1fr; gap: 40px; }
   .category-title { font-size: clamp(44px, 14vw, 80px); }
   .category-desc { font-size: 16px; }
 }
@@ -1122,7 +1004,6 @@ footer {
   .hero-label { font-size: 10px; }
 
   .page-hero { padding: 120px 0 10px; }
-  .video-item { margin-bottom: 50px; }
 
   #showreel { padding: 40px 0 70px; }
   .showreel-video { border-radius: 8px; }
@@ -1133,8 +1014,7 @@ footer {
 
   .lightbox { padding: 20px; }
   .lightbox-close {
-    top: 12px;
-    right: 12px;
+    top: 12px; right: 12px;
     font-size: 32px;
     width: 40px;
     height: 40px;
@@ -1161,22 +1041,17 @@ footer {
   .video-lightbox-prev { left: 8px; }
   .video-lightbox-next { right: 8px; }
   .video-lightbox-close {
-    top: 12px;
-    right: 12px;
+    top: 12px; right: 12px;
     font-size: 32px;
     width: 40px;
     height: 40px;
   }
 
-  footer {
-    padding: 30px 20px;
-    flex-direction: column;
-    gap: 8px;
-  }
+  footer { padding: 30px 20px; flex-direction: column; gap: 8px; }
 }
 
 @media (max-width: 560px) {
-  .video-grid { grid-template-columns: 1fr; }
+  .video-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .video-meta { padding: 16px 18px 20px; }
   .video-name { font-size: 16px; }
   .collections-grid { grid-template-columns: 1fr; }
@@ -1184,189 +1059,6 @@ footer {
   .collection-title { font-size: 16px; }
   .masonry { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   .masonry-item { border-radius: 8px; }
-}
-
-/* ============================================
-   VIDEO GRID — авто-формат 16:9 / 9:16
-   ============================================ */
-.video-grid-section {
-  padding: 40px 0 100px;
-}
-
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  align-items: start;
-}
-
-/* Горизонтальное — обычный размер */
-.video-card.horizontal {
-  grid-column: span 2;
-}
-
-/* Вертикальное — узкая карточка */
-.video-card.vertical {
-  grid-column: span 1;
-}
-
-/* Если у карточки нет класса — по умолчанию горизонтальная */
-.video-card:not(.horizontal):not(.vertical) {
-  grid-column: span 2;
-}
-
-.video-card {
-  display: block;
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  background: #111;
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
-              box-shadow 0.5s ease;
-}
-
-.video-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6),
-              0 0 0 1px rgba(255, 255, 255, 0.08);
-}
-
-/* Форматы */
-.video-cover {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  background: #1a1a1a;
-}
-
-.video-card.horizontal .video-cover {
-  aspect-ratio: 16 / 9;
-}
-
-.video-card.vertical .video-cover {
-  aspect-ratio: 9 / 16;
-}
-
-.video-card:not(.horizontal):not(.vertical) .video-cover {
-  aspect-ratio: 16 / 9;
-}
-
-.video-cover img,
-.video-cover video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  pointer-events: none;
-  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.video-card:hover .video-cover img,
-.video-card:hover .video-cover video {
-  transform: scale(1.06);
-}
-
-/* Градиент снизу */
-.video-cover::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 45%,
-    rgba(0, 0, 0, 0.6) 100%
-  );
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Play */
-.video-play {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 68px;
-  height: 68px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: background 0.35s ease, transform 0.35s ease, color 0.35s ease;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.video-play svg {
-  width: 22px;
-  height: 22px;
-  margin-left: 4px;
-  display: block;
-}
-
-.video-card:hover .video-play {
-  background: #fff;
-  color: #000;
-  transform: translate(-50%, -50%) scale(1.12);
-}
-
-/* Номер */
-.video-number {
-  position: absolute;
-  bottom: 18px;
-  left: 20px;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  color: #fff;
-  z-index: 3;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
-}
-
-/* Старое скрываем */
-.video-meta,
-.video-name,
-.video-tag {
-  display: none;
-}
-
-/* ============================================
-   АДАПТИВ
-   ============================================ */
-@media (max-width: 1100px) {
-  .video-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .video-card.horizontal {
-    grid-column: span 2;
-  }
-}
-
-@media (max-width: 900px) {
-  .video-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
-  .video-card.horizontal,
-  .video-card.vertical {
-    grid-column: span 1;
-  }
-  .video-play {
-    width: 56px;
-    height: 56px;
-  }
-}
-
-@media (max-width: 560px) {
-  .video-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
   .video-number {
     bottom: 12px;
     left: 14px;
