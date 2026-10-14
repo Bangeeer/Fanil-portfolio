@@ -218,6 +218,29 @@
       if (e.key === "ArrowRight") showVideo(videoIndex + 1);
     });
   </script>
-
+    // Авто-определение формата видео (вертикальное / горизонтальное)
+    videoLinks.forEach(function (link) {
+      const video = link.querySelector("video");
+      if (!video) return;
+      video.addEventListener("loadedmetadata", function () {
+        if (video.videoHeight > video.videoWidth) {
+          link.classList.add("is-vertical");
+          link.classList.remove("is-horizontal");
+        } else {
+          link.classList.add("is-horizontal");
+          link.classList.remove("is-vertical");
+        }
+      });
+      // Если metadata уже загружена
+      if (video.readyState >= 1) {
+        if (video.videoHeight > video.videoWidth) {
+          link.classList.add("is-vertical");
+          link.classList.remove("is-horizontal");
+        } else {
+          link.classList.add("is-horizontal");
+          link.classList.remove("is-vertical");
+        }
+      }
+    });
 </body>
 </html>
