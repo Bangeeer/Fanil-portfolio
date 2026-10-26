@@ -3,19 +3,31 @@
 /* ============================================
    RESET + BASE
    ============================================ */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  background: #0a0a0a; color: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0a0a0a;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
 
 /* ============================================
-   HEADER (Базовый)
+   HEADER
    ============================================ */
 header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -24,40 +36,139 @@ header {
   backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
+
 .logo { font-size: 16px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; }
 header nav { display: flex; gap: 32px; }
+
 header nav a {
   font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;
   color: #888; transition: color 0.3s; position: relative;
 }
+
 header nav a:hover, header nav a.active { color: #fff; }
+
 header nav a.active::after {
   content: ""; position: absolute; left: 0; right: 0; bottom: -6px;
   height: 1px; background: #fff;
 }
 
 /* ============================================
-   КНОПКИ (Базовые)
+   КНОПКИ
    ============================================ */
-.btn, .contact-button {
+.btn {
   display: inline-block; padding: 14px 30px; border-radius: 999px;
   background: #fff; color: #000; font-size: 14px; font-weight: 600;
   transition: opacity 0.3s, transform 0.3s; border: none; cursor: pointer;
 }
-.btn:hover, .contact-button:hover { opacity: 0.85; transform: translateY(-2px); }
+.btn:hover { opacity: 0.85; transform: translateY(-2px); }
+
 .btn-outline { background: transparent; color: #fff; border: 1px solid #333; }
 .btn-outline:hover { border-color: #fff; }
 
+.contact-button {
+  display: inline-block; padding: 18px 36px; border-radius: 999px;
+  background: #fff; color: #000; font-size: 15px; font-weight: 600;
+  transition: opacity 0.3s, transform 0.3s; border: none; cursor: pointer;
+}
+.contact-button:hover { opacity: 0.85; transform: translateY(-2px); }
+
 /* ============================================
-   ВНУТРЕННИЕ СТРАНИЦЫ (Фото, Видео и т.д.)
+   ВНУТРЕННИЕ СТРАНИЦЫ (Заголовки)
    ============================================ */
 .page-hero { padding: 160px 0 20px; }
 .page-title { font-size: clamp(56px, 10vw, 140px); font-weight: 800; line-height: 0.9; letter-spacing: -0.03em; margin-bottom: 24px; }
 .page-lead { font-size: 18px; line-height: 1.6; color: #bbb; max-width: 560px; }
+
 .back-link { display: inline-block; font-size: 13px; color: #888; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 24px; transition: color 0.3s; }
 .back-link:hover { color: #fff; }
 
-/* Подборки фото */
+/* ============================================
+   ГЛАВНАЯ ВИДЕО СТРАНИЦА (ЗИГЗАГ) - ВОССТАНОВЛЕНО
+   ============================================ */
+.showcase { padding: 20px 0 120px; }
+
+.showcase-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 140px;
+}
+
+.showcase-item:last-child { margin-bottom: 0; }
+.showcase-reverse .showcase-media { order: 2; }
+.showcase-reverse .showcase-info { order: 1; }
+
+.showcase-media {
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #111;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.showcase-media:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.showcase-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s ease;
+}
+
+.showcase-media:hover img { transform: scale(1.05); }
+
+.showcase-info { max-width: 500px; }
+
+.showcase-number {
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.showcase-title {
+  font-size: clamp(36px, 5vw, 72px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin: 0 0 24px;
+}
+
+.showcase-desc {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.55;
+  color: #aaa;
+  margin: 0 0 32px;
+  letter-spacing: -0.01em;
+}
+
+.showcase-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #333;
+  transition: border-color 0.3s, gap 0.3s;
+}
+
+.showcase-link:hover { border-color: #fff; gap: 14px; }
+
+/* ============================================
+   ПОДБОРКИ ФОТО (photo.html)
+   ============================================ */
 .collections { padding: 40px 0 100px; }
 .collections-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .collection-card {
@@ -74,7 +185,9 @@ header nav a.active::after {
 .collection-link { font-size: 13px; color: #888; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; transition: color 0.3s; }
 .collection-card:hover .collection-link { color: #fff; }
 
-/* Галерея фото (Masonry) */
+/* ============================================
+   ГАЛЕРЕЯ ФОТО ВНУТРИ ПОДБОРОК
+   ============================================ */
 .collection-gallery { padding: 40px 0 100px; }
 .masonry { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .masonry-item {
@@ -85,7 +198,9 @@ header nav a.active::after {
 .masonry-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
 .masonry-item:hover img { transform: scale(1.05); }
 
-/* Сетка видео */
+/* ============================================
+   СЕТКА ВИДЕО ВНУТРИ КАТЕГОРИЙ
+   ============================================ */
 .video-grid-section { padding: 40px 0 100px; }
 .video-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: start; }
 .video-card { grid-column: span 2; display: block; position: relative; border-radius: 16px; overflow: hidden; background: #111; transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease; }
@@ -103,7 +218,9 @@ header nav a.active::after {
 .video-number { position: absolute; bottom: 18px; left: 20px; font-size: 13px; font-weight: 700; letter-spacing: 0.25em; color: #fff; z-index: 3; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6); }
 .video-meta, .video-name, .video-tag { display: none; }
 
-/* Лайтбоксы */
+/* ============================================
+   ЛАЙТБОКСЫ (ФОТО И ВИДЕО)
+   ============================================ */
 .lightbox { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 40px; cursor: zoom-out; animation: lightboxFade 0.3s ease; }
 .lightbox.active { display: flex; }
 .lightbox img { max-width: 100%; max-height: 90vh; object-fit: contain; border-radius: 8px; cursor: default; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6); }
@@ -124,7 +241,9 @@ header nav a.active::after {
 .video-lightbox-prev:hover, .video-lightbox-next:hover { background: rgba(255, 255, 255, 0.25); }
 @keyframes lightboxFade { from { opacity: 0; } to { opacity: 1; } }
 
-/* Категории видео (Заголовки) */
+/* ============================================
+   ЗАГОЛОВКИ КАТЕГОРИЙ (Танцы, Клипы и т.д.)
+   ============================================ */
 .category-hero { padding: 160px 0 80px; }
 .category-hero-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: center; }
 .category-info { max-width: 520px; }
@@ -138,7 +257,9 @@ header nav a.active::after {
 .category-media { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 4 / 3; background: #111; box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5); }
 .category-media img, .category-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* Форма контактов */
+/* ============================================
+   ФОРМА КОНТАКТОВ
+   ============================================ */
 .contact-section { padding: 80px 0 100px; }
 .contact-title { font-size: clamp(36px, 6vw, 80px); font-weight: 800; line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 16px; }
 .contact-lead { font-size: 17px; line-height: 1.6; color: #aaa; max-width: 560px; margin-bottom: 48px; }
@@ -155,13 +276,23 @@ header nav a.active::after {
 /* Footer */
 footer { display: flex; justify-content: space-between; padding: 40px; border-top: 1px solid rgba(255, 255, 255, 0.06); font-size: 13px; color: #666; letter-spacing: 0.05em; }
 
-/* Адаптив для внутренних */
+/* ============================================
+   АДАПТИВ
+   ============================================ */
+@media (max-width: 1100px) {
+  .video-grid { grid-template-columns: repeat(3, 1fr); }
+}
 @media (max-width: 900px) {
   .video-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .video-card, .video-card.is-horizontal, .video-card.is-vertical { grid-column: span 1; }
   .collections-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .masonry { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .masonry-item { border-radius: 10px; }
+  .showcase-item { grid-template-columns: 1fr; gap: 32px; margin-bottom: 80px; }
+  .showcase-reverse .showcase-media, .showcase-reverse .showcase-info { order: initial; }
+  .showcase-info { max-width: 100%; }
+  .showcase-desc { font-size: 17px; }
+  .showcase-title { font-size: clamp(32px, 9vw, 56px); }
   .category-hero { padding: 120px 0 60px; }
   .category-hero-grid { grid-template-columns: 1fr; gap: 40px; }
   .category-title { font-size: clamp(44px, 14vw, 80px); }
@@ -200,7 +331,7 @@ footer { display: flex; justify-content: space-between; padding: 40px; border-to
 }
 
 /* =========================================================================
-   СТИЛИ ТОЛЬКО ДЛЯ ГЛАВНОЙ СТРАНИЦЫ (сработают, если у <body> есть класс home-page)
+   НОВЫЙ ДИЗАЙН ТОЛЬКО ДЛЯ ГЛАВНОЙ СТРАНИЦЫ (home-page)
    ========================================================================= */
 body.home-page {
   background: #050505;
