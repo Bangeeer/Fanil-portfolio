@@ -23,7 +23,7 @@ body {
   position: relative;
 }
 
-/* Тонкая текстура шума на фоне (премиум-эффект) */
+/* Тонкая текстура шума на фоне */
 body::after {
   content: "";
   position: fixed;
@@ -117,7 +117,7 @@ header nav a.active::after {
   right: 0;
   bottom: -8px;
   height: 1px;
-  background: #e6c875; /* Акцентный золотой цвет */
+  background: #e6c875;
 }
 
 /* ============================================
@@ -139,6 +139,7 @@ header nav a.active::after {
   text-transform: uppercase;
   transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
   border: 1px solid transparent;
+  cursor: pointer;
 }
 
 .btn:hover, .contact-button:hover, .category-cta:hover {
@@ -187,7 +188,7 @@ header nav a.active::after {
 }
 
 /* ============================================
-   ABOUT (Текст + Фото на главной)
+   ABOUT (Главная)
    ============================================ */
 .about-section {
   padding: 160px 0;
@@ -201,7 +202,6 @@ header nav a.active::after {
   margin-bottom: 120px;
 }
 
-/* Огромный элегантный заголовок */
 .about-hero h1 {
   font-family: 'Syne', sans-serif;
   font-size: clamp(64px, 12vw, 180px);
@@ -228,21 +228,15 @@ header nav a.active::after {
   font-weight: 300;
 }
 
-.about-photo {
-  position: relative;
-}
-
 .about-photo img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 4px; /* Строгие углы для элегантности */
+  border-radius: 4px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
   transition: transform 0.6s ease;
 }
-.about-photo:hover img {
-  transform: scale(1.02);
-}
+.about-photo:hover img { transform: scale(1.02); }
 
 /* ============================================
    SECTION HEADERS (Заголовки страниц)
@@ -278,12 +272,10 @@ header nav a.active::after {
   margin-bottom: 40px;
   transition: color 0.3s;
 }
-.back-link:hover {
-  color: #e6c875;
-}
+.back-link:hover { color: #e6c875; }
 
 /* ============================================
-   COLLECTIONS (Сетка подборок фото/видео)
+   COLLECTIONS (Сетка подборок)
    ============================================ */
 .collections {
   padding: 40px 0 120px;
@@ -301,7 +293,7 @@ header nav a.active::after {
   border-radius: 4px;
   overflow: hidden;
   position: relative;
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .collection-card:hover {
@@ -323,9 +315,7 @@ header nav a.active::after {
   transition: transform 0.8s ease;
 }
 
-.collection-card:hover .collection-cover img {
-  transform: scale(1.08);
-}
+.collection-card:hover .collection-cover img { transform: scale(1.08); }
 
 .collection-info {
   padding: 24px;
@@ -351,16 +341,94 @@ header nav a.active::after {
   transition: color 0.3s;
 }
 
-.collection-card:hover .collection-link {
-  color: #e6c875;
+.collection-card:hover .collection-link { color: #e6c875; }
+
+/* ============================================
+   MASONRY ГАЛЕРЕЯ (Фотографии внутри подборок)
+   ============================================ */
+.collection-gallery { padding: 40px 0 120px; }
+
+.masonry {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.masonry-item {
+  display: block;
+  overflow: hidden;
+  border-radius: 4px;
+  aspect-ratio: 1 / 1;
+  background: #0f0f0f;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.masonry-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+}
+
+.masonry-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.masonry-item:hover img { transform: scale(1.05); }
+
+/* ============================================
+   CATEGORY HERO (Страницы категорий)
+   ============================================ */
+.category-hero { padding: 200px 0 100px; }
+
+.category-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.category-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(56px, 8vw, 120px);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  margin: 16px 0 40px;
+}
+
+.category-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  line-height: 1.6;
+  color: #a1a1aa;
+  margin-bottom: 24px;
+  max-width: 480px;
+}
+
+.category-desc em { font-style: italic; color: #e6c875; }
+.category-desc strong { font-weight: 600; color: #fff; }
+
+.category-media {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+}
+
+.category-media img, .category-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* ============================================
    VIDEO GRID (Авто-формат)
    ============================================ */
-.video-grid-section {
-  padding: 40px 0 120px;
-}
+.video-grid-section { padding: 40px 0 120px; }
 
 .video-grid {
   display: grid;
@@ -369,10 +437,7 @@ header nav a.active::after {
   align-items: start;
 }
 
-.video-card {
-  grid-column: span 2;
-}
-
+.video-card { grid-column: span 2; }
 .video-card.is-horizontal { grid-column: span 2; }
 .video-card.is-vertical { grid-column: span 1; }
 
@@ -397,9 +462,7 @@ header nav a.active::after {
   aspect-ratio: 16 / 9;
 }
 
-.video-card.is-vertical .video-cover {
-  aspect-ratio: 9 / 16;
-}
+.video-card.is-vertical .video-cover { aspect-ratio: 9 / 16; }
 
 .video-cover img,
 .video-cover video {
@@ -412,9 +475,7 @@ header nav a.active::after {
 }
 
 .video-card:hover .video-cover img,
-.video-card:hover .video-cover video {
-  transform: scale(1.05);
-}
+.video-card:hover .video-cover video { transform: scale(1.05); }
 
 .video-cover::after {
   content: "";
@@ -467,53 +528,115 @@ header nav a.active::after {
 }
 
 /* ============================================
-   CATEGORY HERO (Страницы категорий)
+   LIGHTBOX ФОТО
    ============================================ */
-.category-hero {
-  padding: 200px 0 100px;
-}
-
-.category-hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 5, 0.98);
+  display: none;
   align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 40px;
+  cursor: zoom-out;
+  animation: lightboxFade 0.3s ease;
 }
+.lightbox.active { display: flex; }
 
-.category-title {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(56px, 8vw, 120px);
-  font-weight: 800;
-  line-height: 0.9;
-  letter-spacing: -0.04em;
-  margin: 16px 0 40px;
-}
-
-.category-desc {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  line-height: 1.6;
-  color: #a1a1aa;
-  margin-bottom: 24px;
-  max-width: 480px;
-}
-
-.category-desc em { font-style: italic; color: #e6c875; }
-.category-desc strong { font-weight: 600; color: #fff; }
-
-.category-media {
-  position: relative;
+.lightbox img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
   border-radius: 4px;
-  overflow: hidden;
-  aspect-ratio: 4 / 3;
-  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+  cursor: default;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
 }
 
-.category-media img, .category-media video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.lightbox-close {
+  position: fixed;
+  top: 30px; right: 40px;
+  font-size: 40px; color: #fff;
+  cursor: pointer; line-height: 1;
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  transition: background 0.3s;
+  z-index: 1001;
 }
+.lightbox-close:hover { background: rgba(255,255,255,0.3); }
+
+.lightbox-prev, .lightbox-next {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  font-size: 60px; color: #fff; cursor: pointer;
+  user-select: none; line-height: 1;
+  width: 64px; height: 64px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  transition: background 0.3s;
+  z-index: 1001;
+}
+.lightbox-prev { left: 30px; }
+.lightbox-next { right: 30px; }
+.lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.3); }
+
+.lightbox-counter {
+  position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+  color: #fff; font-size: 14px; letter-spacing: 0.1em;
+  background: rgba(0,0,0,0.6); padding: 10px 20px;
+  border-radius: 999px; z-index: 1001;
+}
+
+/* ============================================
+   VIDEO LIGHTBOX (Всплывающее видео)
+   ============================================ */
+.video-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 5, 0.98);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 40px;
+  animation: lightboxFade 0.3s ease;
+}
+.video-lightbox.active { display: flex; }
+
+.video-lightbox video {
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: 4px;
+  background: #000;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+}
+
+.video-lightbox-close {
+  position: fixed; top: 30px; right: 40px;
+  font-size: 40px; color: #fff; cursor: pointer;
+  line-height: 1; width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.1); border-radius: 50%;
+  transition: background 0.3s; z-index: 1001;
+}
+.video-lightbox-close:hover { background: rgba(255,255,255,0.3); }
+
+.video-lightbox-prev, .video-lightbox-next {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  font-size: 60px; color: #fff; cursor: pointer;
+  user-select: none; line-height: 1;
+  width: 64px; height: 64px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.1); border-radius: 50%;
+  transition: background 0.3s; z-index: 1001;
+}
+.video-lightbox-prev { left: 30px; }
+.video-lightbox-next { right: 30px; }
+.video-lightbox-prev:hover, .video-lightbox-next:hover { background: rgba(255,255,255,0.3); }
+
+@keyframes lightboxFade { from { opacity: 0; } to { opacity: 1; } }
 
 /* ============================================
    ФОРМА КОНТАКТОВ
@@ -572,14 +695,20 @@ footer {
 
 @media (max-width: 768px) {
   header { padding: 20px; }
-  header nav { display: none; /* Можно добавить бургер, но пока скроем для чистоты */ }
+  header nav { gap: 16px; }
+  header nav a { font-size: 10px; }
   .about-top { grid-template-columns: 1fr; gap: 40px; }
   .about-photo { order: -1; }
   .about-hero h1 { font-size: clamp(56px, 16vw, 100px); }
   .container { padding: 0 20px; }
   .collections-grid { grid-template-columns: 1fr; }
+  .masonry { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .video-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .video-card, .video-card.is-horizontal, .video-card.is-vertical { grid-column: span 1; }
   .video-play { width: 48px; height: 48px; }
+  .lightbox-prev, .lightbox-next { font-size: 40px; width: 48px; height: 48px; }
+  .lightbox-prev { left: 10px; } .lightbox-next { right: 10px; }
+  .video-lightbox-prev, .video-lightbox-next { font-size: 40px; width: 48px; height: 48px; }
+  .video-lightbox-prev { left: 10px; } .video-lightbox-next { right: 10px; }
   footer { flex-direction: column; gap: 10px; padding: 30px 20px; }
 }
