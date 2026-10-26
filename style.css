@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=Syne:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
 
 /* ============================================
    БАЗА
@@ -60,7 +60,7 @@ header nav a.active::after { content: ""; position: absolute; left: 0; right: 0;
 .showcase-link:hover { border-color: #fff; gap: 14px; }
 
 /* ============================================
-   СТИЛИ ДЛЯ ВНУТРЕННИХ СТРАНИЦ (Фото, Категории)
+   СТИЛИ ДЛЯ ВНУТРЕННИХ СТРАНИЦ
    ============================================ */
 .page-hero { padding: 160px 0 20px; }
 .page-title { font-size: clamp(56px, 10vw, 140px); font-weight: 800; line-height: 0.9; letter-spacing: -0.03em; margin-bottom: 24px; }
@@ -157,9 +157,8 @@ footer { display: flex; justify-content: space-between; padding: 40px; border-to
   .video-grid { grid-template-columns: repeat(2, 1fr); }
   .video-card, .video-card.is-horizontal, .video-card.is-vertical { grid-column: span 1; }
   .collections-grid, .masonry { grid-template-columns: repeat(2, 1fr); }
-  .showcase-item, .category-hero-grid, .about-top { grid-template-columns: 1fr; gap: 40px; }
+  .showcase-item, .category-hero-grid { grid-template-columns: 1fr; gap: 40px; }
   .showcase-reverse .showcase-media { order: initial; }
-  .about-photo { order: -1; }
 }
 @media (max-width: 768px) {
   header { padding: 18px 20px; }
@@ -179,89 +178,4 @@ footer { display: flex; justify-content: space-between; padding: 40px; border-to
 @media (max-width: 560px) {
   .video-grid, .collections-grid, .masonry { grid-template-columns: 1fr; }
   .video-play { width: 48px; height: 48px; }
-}
-
-/* =========================================================================
-   ТОЛЬКО ДЛЯ ГЛАВНОЙ СТРАНИЦЫ (body.home-page)
-   ========================================================================= */
-body.home-page {
-  background: #050505;
-  color: #f0f0f0;
-  font-family: 'Inter', sans-serif;
-}
-
-/* Задний фон с текстурой */
-body.home-page::after {
-  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' /%3E%3C/svg%3E");
-}
-body.home-page::before {
-  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
-  background: radial-gradient(circle at 15% 0%, rgba(230, 200, 117, 0.05), transparent 40%), radial-gradient(circle at 85% 100%, rgba(120, 80, 255, 0.05), transparent 40%);
-}
-
-/* Сетка и типографика главной */
-body.home-page .about-section { padding: 200px 0 120px; }
-body.home-page .about-top { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: center; margin-bottom: 0; }
-
-body.home-page .about-hero h1 {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(64px, 10vw, 140px); 
-  font-weight: 800; 
-  line-height: 0.85; 
-  letter-spacing: -0.04em; 
-  margin: 0 0 24px;
-}
-
-body.home-page .hero-label {
-  font-family: 'Cormorant Garamond', serif; 
-  font-style: italic; 
-  font-size: 24px; 
-  color: #e6c875; 
-  margin-bottom: 24px;
-}
-
-body.home-page .hero-subtitle {
-  font-size: 18px; 
-  line-height: 1.8; 
-  color: #a1a1aa; 
-  max-width: 480px; 
-  font-weight: 300;
-}
-
-body.home-page .about-photo img {
-  border-radius: 4px; 
-  box-shadow: 0 40px 80px rgba(0,0,0,0.8);
-  width: 100%;
-  height: auto;
-  max-height: 75vh; /* Фото не на весь экран, а аккуратно по высоте */
-  object-fit: cover;
-}
-
-/* Кнопки главной */
-body.home-page .btn {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 16px 32px;
-  border-radius: 4px; /* Строгие кнопки для премиум-стиля */
-  background: #e6c875;
-  color: #000;
-}
-body.home-page .btn:hover { background: #fff; transform: translateY(-2px); }
-body.home-page .btn-outline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.2); }
-body.home-page .btn-outline:hover { border-color: #fff; }
-
-/* Форма и футер на главной */
-body.home-page .contact-title { font-family: 'Syne', sans-serif; font-size: clamp(40px, 6vw, 80px); }
-body.home-page .contact-lead { font-family: 'Cormorant Garamond', serif; font-size: 24px; }
-body.home-page .contact-form input:focus, body.home-page .contact-form textarea:focus { border-color: #e6c875; }
-body.home-page .social-link:hover { color: #e6c875; }
-
-@media (max-width: 900px) {
-  body.home-page .about-top { grid-template-columns: 1fr; gap: 40px; }
-  body.home-page .about-photo { order: -1; }
-  body.home-page .about-hero h1 { font-size: clamp(56px, 14vw, 90px); }
-  body.home-page .about-photo img { max-height: 50vh; }
 }
