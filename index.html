@@ -10,51 +10,42 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Inter:wght@300;400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   
-  <!-- ВСТРОЕННЫЕ СТИЛИ ТОЛЬКО ДЛЯ ГЛАВНОЙ -->
   <style>
+    /* Стили для текста на главной */
     body.home-page {
       background: #050505;
       color: #f0f0f0;
       font-family: 'Inter', sans-serif;
     }
-    /* Легкая текстура и свечение на фоне */
-    body.home-page::before {
-      content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
-      background: radial-gradient(circle at 15% 0%, rgba(230, 200, 117, 0.05), transparent 40%), radial-gradient(circle at 85% 100%, rgba(120, 80, 255, 0.05), transparent 40%);
-    }
-
-    .hero-home {
-      padding: 180px 5% 100px;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
+    
+    .home-about-section {
+      padding: 120px 5% 100px;
     }
     
-    .hero-container {
+    .home-about-container {
       max-width: 1200px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 80px;
-      width: 100%;
     }
 
-    .hero-text {
+    .home-about-text {
       flex: 1;
       max-width: 600px;
     }
 
-    .hero-subtitle {
+    .home-label {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-size: 26px;
-      color: #e6c875; /* Золотистый акцент */
+      color: #e6c875;
       margin-bottom: 20px;
       display: block;
     }
 
-    .hero-text h1 {
+    .home-about-text h1 {
       font-family: 'Syne', sans-serif;
       font-size: clamp(64px, 8vw, 130px);
       font-weight: 800;
@@ -64,7 +55,7 @@
       color: #fff;
     }
 
-    .hero-desc {
+    .home-desc {
       font-size: 18px;
       line-height: 1.7;
       color: #a1a1aa;
@@ -73,13 +64,13 @@
       font-weight: 300;
     }
 
-    .hero-actions {
+    .home-actions {
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
     }
 
-    .hero-actions a {
+    .home-actions a {
       font-family: 'Inter', sans-serif;
       font-size: 13px;
       font-weight: 600;
@@ -110,44 +101,43 @@
       transform: translateY(-2px);
     }
 
-    /* Красивое, аккуратное фото */
-    .hero-image {
+    /* Фото */
+    .home-about-image {
       flex: 1;
       max-width: 500px;
-      position: relative;
     }
 
-    .hero-image img {
+    .home-about-image img {
       width: 100%;
       height: auto;
-      max-height: 75vh; /* Не больше 75% высоты экрана */
+      max-height: 75vh;
       object-fit: cover;
       border-radius: 4px;
       box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
       border: 1px solid rgba(255,255,255,0.05);
     }
 
-    /* Адаптив для телефонов */
+    /* Форма контактов */
+    .home-contact {
+      padding: 60px 5% 100px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
     @media (max-width: 900px) {
-      .hero-container {
+      .home-about-container {
         flex-direction: column-reverse;
         text-align: center;
         gap: 40px;
       }
-      .hero-text, .hero-desc {
+      .home-about-text, .home-desc {
         max-width: 100%;
         margin-left: auto;
         margin-right: auto;
       }
-      .hero-actions {
-        justify-content: center;
-      }
-      .hero-image {
-        max-width: 100%;
-      }
-      .hero-image img {
-        max-height: 50vh;
-      }
+      .home-actions { justify-content: center; }
+      .home-about-image { max-width: 100%; }
+      .home-about-image img { max-height: 50vh; }
     }
   </style>
 </head>
@@ -163,34 +153,42 @@
     </nav>
   </header>
 
-  <!-- БЛОК ГЛАВНОЙ СТРАНИЦЫ -->
-  <section class="hero-home">
-    <div class="hero-container">
+  <!-- ВОЗВРАЩАЕМ ВИДЕО НА ФОН (ШОУРИЛ) -->
+  <section class="hero-video-bg">
+    <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata">
+      <!-- Убедись, что путь к видео правильный (webm или mp4) -->
+      <source src="video/showreel.webm" type="video/webm" />
+      <source src="video/showreel.mp4" type="video/mp4" />
+    </video>
+  </section>
+
+  <!-- БЛОК С ТЕКСТОМ И ФОТО (Идет сразу под видео) -->
+  <section class="home-about-section">
+    <div class="home-about-container">
       
-      <div class="hero-text">
-        <span class="hero-subtitle">Photographer / Videographer</span>
+      <div class="home-about-text">
+        <span class="home-label">Photographer / Videographer</span>
         <h1>ФАНИЛЬ</h1>
-        <p class="hero-desc">
+        <p class="home-desc">
           Фотограф и видеограф из Казани.<br>
           Снимаю людей, события и бренды,<br>
           создавая визуальные истории.
         </p>
-        <div class="hero-actions">
+        <div class="home-actions">
           <a href="video.html" class="btn-gold">Смотреть видео</a>
           <a href="photo.html" class="btn-outline">Смотреть фото</a>
         </div>
       </div>
 
-      <div class="hero-image">
+      <div class="home-about-image">
         <img src="Image/Portrait.jpg" alt="Фаниль" />
       </div>
 
     </div>
   </section>
 
-  <!-- ФОРМА КОНТАКТОВ (Оставил на главной) -->
-  <section class="contact-section" style="padding: 80px 5% 100px;">
-    <div style="max-width: 1200px; margin: 0 auto;">
+  <!-- ФОРМА КОНТАКТОВ -->
+  <section class="home-contact">
       <h2 class="contact-title">Есть идея?</h2>
       <p class="contact-lead">Напишите — обсудим концепцию, сроки и стоимость.</p>
 
@@ -206,7 +204,6 @@
         <a href="https://instagram.com/yofantik" target="_blank" class="social-link">Instagram</a>
         <a href="mailto:bangeeer_rrr@mail.ru" class="social-link">Email</a>
       </div>
-    </div>
   </section>
 
   <footer>
