@@ -6,7 +6,7 @@
   <title>Фаниль — Photographer &amp; Videographer</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="home-page">
 
   <header>
     <a href="index.html" class="logo">ФАНИЛЬ</a>
@@ -18,65 +18,52 @@
     </nav>
   </header>
 
-  <!-- HERO: только видео -->
-  <section class="hero-video-bg">
-    <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata">
-      <source src="video/showreel.mp4" type="video/mp4" />
-    </video>
-  </section>
-
-  <!-- ABOUT -->
+  <!-- НОВЫЙ ГЕРОЙ-БЛОК -->
   <section class="about-section" id="about">
     <div class="container">
-
       <div class="about-top">
+        
+        <!-- Левая часть: Текст -->
         <div class="about-hero">
-          <h1>ФАНИЛЬ</h1>
           <div class="hero-label">Photographer / Videographer — Kazan</div>
+          <h1>ФАНИЛЬ</h1>
           <div class="hero-subtitle">
             Фотограф и видеограф из Казани.<br />
             Снимаю людей, события, бренды<br />
             и истории, которые хочется пересматривать.
           </div>
+          <div class="hero-buttons" style="margin-top: 40px; display: flex; gap: 16px;">
+            <a href="video.html" class="btn">Смотреть видео</a>
+            <a href="photo.html" class="btn btn-outline">Смотреть фото</a>
+          </div>
         </div>
 
+        <!-- Правая часть: Фото -->
         <div class="about-photo">
           <img src="Image/Portrait.jpg" alt="Фаниль" />
         </div>
-      </div>
 
-    </div>
-  </section>
-
-  <!-- Ссылки на разделы -->
-  <section id="explore">
-    <div class="container">
-      <div class="explore-links">
-        <a href="video.html" class="btn">Смотреть видео →</a>
-        <a href="photo.html" class="btn btn-outline">Смотреть фото →</a>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- БЛОК С ФОРМОЙ (на главной) -->
   <section id="contact" class="contact-section">
     <div class="container">
-      <h2 class="contact-title">Свяжитесь со мной</h2>
-      <p class="contact-lead">Ваш проект ждёт старта. Напишите — обсудим идею, сроки и стоимость.</p>
+      <h2 class="contact-title">Есть идея?</h2>
+      <p class="contact-lead">Напишите — обсудим концепцию, сроки и стоимость.</p>
 
       <form id="contact-form" class="contact-form">
         <input type="text" name="name" placeholder="Ваше имя" required />
-        <input type="text" name="contact" placeholder="Телефон, email или @username" required />
-        <textarea name="message" placeholder="Ваше сообщение" rows="4" required></textarea>
-        <button type="submit" class="contact-button">Отправить</button>
+        <input type="text" name="contact" placeholder="Телефон или Telegram" required />
+        <textarea name="message" placeholder="Опишите ваш проект" rows="4" required></textarea>
+        <button type="submit" class="contact-button">Отправить заявку</button>
       </form>
 
       <div class="socials-row">
         <a href="https://t.me/Bangeer" target="_blank" class="social-link">Telegram</a>
-        <a href="https://instagram.com/yofantik" target="_blank" class="social-link">Instagram (основной)</a>
-        <a href="https://instagram.com/bangeersk" target="_blank" class="social-link">Instagram (рабочий)</a>
+        <a href="https://instagram.com/yofantik" target="_blank" class="social-link">Instagram</a>
         <a href="mailto:bangeeer_rrr@mail.ru" class="social-link">Email</a>
-        <a href="tel:+79046759028" class="social-link">+7 (904) 675-90-28</a>
       </div>
     </div>
   </section>
@@ -89,42 +76,26 @@
   <script>
     const BOT_TOKEN = "8754319951:AAGUhMcqqYR3BkCsnPJ9nVsMP8Ba5ycXhlk";
     const CHAT_ID = "417796347";
-
     document.getElementById("contact-form").addEventListener("submit", async function (e) {
       e.preventDefault();
       const form = e.target;
       const data = new FormData(form);
-
-      const text =
-        "📩 Новая заявка с сайта\n\n" +
-        "👤 Имя: " + data.get("name") + "\n" +
-        "📞 Контакт: " + data.get("contact") + "\n" +
-        "💬 Сообщение: " + data.get("message");
-
+      const text = "📩 Новая заявка\n👤 Имя: " + data.get("name") + "\n📞 Контакт: " + data.get("contact") + "\n💬 Сообщение: " + data.get("message");
       const btn = form.querySelector("button");
-      btn.disabled = true;
-      btn.textContent = "Отправка...";
-
+      btn.disabled = true; btn.textContent = "Отправка...";
       try {
         const res = await fetch("https://api.telegram.org/bot" + BOT_TOKEN + "/sendMessage", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
+          method: "POST", headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ chat_id: CHAT_ID, text: text })
         });
         if (res.ok) {
-          form.reset();
-          btn.textContent = "Отправлено ✓";
-          setTimeout(() => { btn.disabled = false; btn.textContent = "Отправить"; }, 3000);
-        } else {
-          throw new Error("Ошибка отправки");
-        }
+          form.reset(); btn.textContent = "Отправлено ✓";
+          setTimeout(() => { btn.disabled = false; btn.textContent = "Отправить заявку"; }, 3000);
+        } else throw new Error();
       } catch (err) {
-        btn.disabled = false;
-        btn.textContent = "Отправить";
-        alert("Не получилось отправить. Напишите напрямую в Telegram: @Bangeer");
+        btn.disabled = false; btn.textContent = "Ошибка. Напишите в Telegram";
       }
     });
   </script>
-
 </body>
 </html>
