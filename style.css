@@ -560,12 +560,12 @@ body.home-page::before {
 
 .category-title {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(48px, 7vw, 110px);
+  font-size: clamp(36px, 5vw, 72px); /* Уменьшили максимальный размер для длинных слов */
   font-weight: 800;
-  line-height: 0.92;
-  letter-spacing: -0.04em;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
   margin: 16px 0 40px;
-  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .category-desc {
