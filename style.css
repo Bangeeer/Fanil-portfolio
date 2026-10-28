@@ -751,3 +751,102 @@ footer {
   .video-play svg { width: 18px; height: 18px; }
   .video-number { bottom: 12px; left: 14px; font-size: 11px; }
 }
+
+/* ============================================
+   СТРАНИЦА КОНТАКТОВ (contacts.html)
+   ============================================ */
+.contact-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: flex-start;
+  padding: 40px 0 120px;
+}
+
+.contact-left h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(56px, 8vw, 120px);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  margin-bottom: 32px;
+}
+
+.contact-left .category-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  line-height: 1.5;
+  color: #a1a1aa;
+  margin-bottom: 48px;
+  max-width: 480px;
+}
+
+/* Огромная кнопка */
+.contact-btn-big {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 48px;
+  border-radius: 4px;
+  background: #e6c875;
+  color: #000;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+.contact-btn-big:hover {
+  background: #fff;
+  transform: translateY(-3px);
+}
+
+/* Ссылки справа */
+.contact-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 40px;
+}
+
+.contact-link-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: border-color 0.3s;
+}
+
+.contact-link-item:hover {
+  border-color: #e6c875;
+}
+
+.contact-link-item .label {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.contact-link-item .value {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.contact-link-item:hover .value {
+  color: #e6c875;
+}
+
+@media (max-width: 900px) {
+  .contact-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}
