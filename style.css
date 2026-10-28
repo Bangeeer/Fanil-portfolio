@@ -130,9 +130,7 @@ header nav a.active::after {
   background: transparent;
 }
 
-.cta-dot {
-  display: none; /* Скрываем точку на всякий случай, если она где-то осталась */
-}
+.cta-dot { display: none; }
 
 /* ============================================
    ГЛАВНАЯ СТРАНИЦА (home-page)
@@ -273,10 +271,7 @@ body.home-page::before {
 .showcase-reverse .showcase-media { order: 2; }
 .showcase-reverse .showcase-info { order: 1; }
 
-.showcase-info {
-  max-width: 500px;
-  min-width: 0;
-}
+.showcase-info { max-width: 500px; min-width: 0; }
 
 .showcase-media {
   display: block;
@@ -339,6 +334,157 @@ body.home-page::before {
   transition: border-color 0.3s, gap 0.3s;
 }
 .showcase-link:hover { border-color: #e6c875; gap: 14px; }
+
+/* ============================================
+   КАТЕГОРИИ ВИДЕО (Заголовок и картинка)
+   ============================================ */
+.category-hero { padding: 160px 0 80px; }
+
+.category-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr; /* Дали тексту чуть больше места */
+  gap: 60px;
+  align-items: center;
+}
+
+.category-info { max-width: 600px; min-width: 0; }
+
+/* ИСПРАВЛЕННЫЙ ШРИФТ ЗАГОЛОВКА (чтобы влезал в строку) */
+.category-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 4vw, 54px); /* Оптимальный размер для длинных слов */
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 16px 0 32px;
+  word-wrap: break-word;
+}
+
+.category-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  line-height: 1.5;
+  color: #a1a1aa;
+  margin-bottom: 20px;
+  max-width: 480px;
+}
+
+.category-desc em { font-style: italic; color: #e6c875; }
+.category-desc strong { font-weight: 600; color: #fff; }
+
+/* ИСПРАВЛЕННАЯ КАРТИНКА (чтобы не вылезала) */
+.category-media {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #111;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  max-height: 65vh;
+  width: 100%;
+}
+
+.category-media img, .category-media video {
+  width: 100%; 
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+}
+
+/* ============================================
+   СЕТКА ВИДЕО (Чистая и ровная)
+   ============================================ */
+.video-grid-section { padding: 40px 0 100px; }
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px; /* Увеличили отступы для воздуха */
+  grid-auto-flow: dense; /* МАГИЯ: заполняет пустоты, если есть вертикальные видео */
+  align-items: start;
+}
+
+.video-card {
+  grid-column: span 2;
+  display: block;
+  position: relative;
+  border-radius: 12px; /* Чуть строже углы */
+  overflow: hidden;
+  background: #0f0f0f;
+  border: 1px solid rgba(255, 255, 255, 0.08); /* Тонкая обводка для чистоты */
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease, border-color 0.5s;
+}
+
+.video-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.video-card.is-horizontal { grid-column: span 2; }
+.video-card.is-vertical { grid-column: span 1; }
+
+.video-cover {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16 / 9;
+}
+
+.video-card.is-vertical .video-cover { aspect-ratio: 9 / 16; }
+
+.video-cover img, .video-cover video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.video-card:hover .video-cover img, .video-card:hover .video-cover video {
+  transform: scale(1.05);
+}
+
+.video-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.8) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.video-play {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  transition: background 0.35s ease, transform 0.35s ease, color 0.35s ease;
+  pointer-events: none; z-index: 2;
+}
+
+.video-play svg { width: 20px; height: 20px; margin-left: 3px; display: block; }
+
+.video-card:hover .video-play {
+  background: #fff; color: #000;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-number {
+  position: absolute;
+  bottom: 16px; left: 18px;
+  font-family: 'Syne', sans-serif;
+  font-size: 13px; font-weight: 700;
+  letter-spacing: 0.2em; color: #fff;
+  z-index: 3; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
 
 /* ============================================
    ПОДБОРКИ ФОТО (photo.html)
@@ -440,155 +586,6 @@ body.home-page::before {
 }
 
 .masonry-item:hover img { transform: scale(1.05); }
-
-/* ============================================
-   СЕТКА ВИДЕО ВНУТРИ КАТЕГОРИЙ
-   ============================================ */
-.video-grid-section { padding: 40px 0 100px; }
-
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  align-items: start;
-}
-
-.video-card {
-  grid-column: span 2;
-  display: block;
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  background: #111;
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease;
-}
-
-.video-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08);
-}
-
-.video-card.is-horizontal { grid-column: span 2; }
-.video-card.is-vertical { grid-column: span 1; }
-
-.video-cover {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  background: #1a1a1a;
-  aspect-ratio: 16 / 9;
-}
-
-.video-card.is-vertical .video-cover { aspect-ratio: 9 / 16; }
-
-.video-cover img, .video-cover video {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-  pointer-events: none;
-  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.video-card:hover .video-cover img, .video-card:hover .video-cover video {
-  transform: scale(1.06);
-}
-
-.video-cover::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.7) 100%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.video-play {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 68px; height: 68px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  color: #fff;
-  display: flex; align-items: center; justify-content: center;
-  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-  transition: background 0.35s ease, transform 0.35s ease, color 0.35s ease;
-  pointer-events: none; z-index: 2;
-}
-
-.video-play svg { width: 22px; height: 22px; margin-left: 4px; display: block; }
-
-.video-card:hover .video-play {
-  background: #fff; color: #000;
-  transform: translate(-50%, -50%) scale(1.12);
-}
-
-.video-number {
-  position: absolute;
-  bottom: 18px; left: 20px;
-  font-family: 'Syne', sans-serif;
-  font-size: 14px; font-weight: 700;
-  letter-spacing: 0.2em; color: #fff;
-  z-index: 3; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
-}
-
-.video-meta, .video-name, .video-tag { display: none; }
-
-/* ============================================
-   КАТЕГОРИИ ВИДЕО (Заголовок и картинка)
-   ============================================ */
-.category-hero { padding: 160px 0 80px; }
-
-.category-hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 80px;
-  align-items: center;
-}
-
-.category-info { max-width: 520px; min-width: 0; }
-
-.category-title {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(32px, 4.5vw, 64px); 
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  margin: 16px 0 40px;
-  white-space: nowrap; /* Заголовок в одну строку */
-}
-
-.category-desc {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  line-height: 1.5;
-  color: #a1a1aa;
-  margin-bottom: 20px;
-  max-width: 460px;
-}
-
-.category-desc em { font-style: italic; color: #e6c875; }
-.category-desc strong { font-weight: 600; color: #fff; }
-
-/* Исправленный блок картинки справа */
-.category-media {
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  aspect-ratio: 4 / 3;
-  background: #111;
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
-  max-height: 70vh;
-  width: 100%;
-}
-
-.category-media img, .category-media video {
-  width: 100%; 
-  height: 100%;
-  object-fit: cover; 
-  display: block;
-}
 
 /* ============================================
    СТРАНИЦА КОНТАКТОВ (contacts.html)
@@ -763,7 +760,7 @@ footer {
   .home-about-image { max-width: 100%; }
   .home-about-image img { max-height: 50vh; }
 
-  .category-title { white-space: normal; } /* На мобильных разрешаем перенос */
+  .category-title { font-size: clamp(32px, 6vw, 60px); } /* На планшетах скейлим */
   .category-media { max-height: 50vh; }
 }
 
