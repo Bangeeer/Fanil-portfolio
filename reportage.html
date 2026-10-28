@@ -18,6 +18,7 @@
     </nav>
   </header>
 
+  <!-- Заголовок страницы (без картинки справа) -->
   <section class="page-hero">
     <div class="container">
       <a href="photo.html" class="back-link">← Все подборки</a>
@@ -29,6 +30,7 @@
     </div>
   </section>
 
+  <!-- Сетка с фотографиями -->
   <section class="collection-gallery">
     <div class="container">
       <div class="masonry">
@@ -44,37 +46,19 @@
         <a href="Image/reportage/03.jpg" class="masonry-item lightbox-link">
           <img src="Image/reportage/03.jpg" alt="" loading="lazy" />
         </a>
-
-        <a href="Image/reportage/04.jpg" class="masonry-item lightbox-link">
-          <img src="Image/reportage/04.jpg" alt="" loading="lazy" />
-        </a>
-
-        <a href="Image/reportage/05.jpg" class="masonry-item lightbox-link">
-          <img src="Image/reportage/05.jpg" alt="" loading="lazy" />
-        </a>
-
-        <a href="Image/reportage/06.jpg" class="masonry-item lightbox-link">
-          <img src="Image/reportage/06.jpg" alt="" loading="lazy" />
-        </a>
-
-        <!-- Добавляй новые фото по образцу:
-
-        <a href="Image/reportage/07.jpg" class="masonry-item lightbox-link">
-          <img src="Image/reportage/07.jpg" alt="" loading="lazy" />
-        </a>
-
-        -->
+        
+        <!-- Добавляй сюда остальные фото по аналогии, меняя только цифры -->
 
       </div>
     </div>
   </section>
 
   <footer>
-    <span>© 2026 Фаниль</span>
+    <span>© Фаниль</span>
     <span>Kazan, Russia</span>
   </footer>
 
-  <!-- Лайтбокс с навигацией -->
+  <!-- Лайтбокс (для полноэкранного просмотра) -->
   <div class="lightbox" id="lightbox">
     <span class="lightbox-close" id="lightbox-close">×</span>
     <span class="lightbox-prev" id="lightbox-prev">‹</span>
@@ -121,14 +105,8 @@
     });
 
     closeBtn.addEventListener("click", closeLightbox);
-    prevBtn.addEventListener("click", function (e) {
-      e.stopPropagation();
-      showImage(currentIndex - 1);
-    });
-    nextBtn.addEventListener("click", function (e) {
-      e.stopPropagation();
-      showImage(currentIndex + 1);
-    });
+    prevBtn.addEventListener("click", function (e) { e.stopPropagation(); showImage(currentIndex - 1); });
+    nextBtn.addEventListener("click", function (e) { e.stopPropagation(); showImage(currentIndex + 1); });
 
     lightbox.addEventListener("click", function (e) {
       if (e.target === lightbox) closeLightbox();
