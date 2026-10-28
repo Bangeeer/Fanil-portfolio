@@ -38,8 +38,8 @@
           Это видео не объясняет — оно <strong>чувствуется</strong>. Именно такие ролики
           формируют стиль бренда и усиливают его визуальную идентичность.
         </p>
+        <!-- Кнопка без точки -->
         <a href="contacts.html" class="category-cta">
-          <span class="cta-dot"></span>
           Заказать
         </a>
       </div>
@@ -59,29 +59,31 @@
           <div class="video-cover">
             <video src="video/image/image-01.mp4#t=3" muted preload="metadata" playsinline></video>
             <span class="video-play">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
             </span>
             <span class="video-number">01</span>
           </div>
         </a>
 
-        <!-- Добавляй новые видео по образцу:
-
         <a href="video/image/image-02.mp4" class="video-card video-link">
           <div class="video-cover">
             <video src="video/image/image-02.mp4#t=3" muted preload="metadata" playsinline></video>
             <span class="video-play">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
             </span>
             <span class="video-number">02</span>
           </div>
         </a>
 
-        -->
+        <a href="video/image/image-03.mp4" class="video-card video-link">
+          <div class="video-cover">
+            <video src="video/image/image-03.mp4#t=3" muted preload="metadata" playsinline></video>
+            <span class="video-play">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+            <span class="video-number">03</span>
+          </div>
+        </a>
 
       </div>
     </div>
@@ -150,11 +152,9 @@
       if (e.key === "ArrowRight") showVideo(videoIndex + 1);
     });
 
-    /* Авто-определение формата видео (вертикальное / горизонтальное) */
     videoLinks.forEach(function (link) {
       const video = link.querySelector("video");
       if (!video) return;
-
       function applyFormat() {
         if (video.videoHeight > video.videoWidth) {
           link.classList.add("is-vertical");
@@ -164,7 +164,6 @@
           link.classList.remove("is-vertical");
         }
       }
-
       video.addEventListener("loadedmetadata", applyFormat);
       if (video.readyState >= 1) applyFormat();
     });
